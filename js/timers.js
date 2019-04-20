@@ -87,4 +87,4 @@ function doTheOtherTimerStuff(keyCode){
       timer3Loop = undefined;
       break;
   }
-}s
+}
