@@ -14,7 +14,6 @@ function cartesian(a){
     b[b.length - 1]++;
     if(b[b.length - 1] >= a[b.length - 1].length){
       for(var j  = b.length - 1; j >= 0; j--){
-        console.log(b);
         if(b[j] >= a[j].length){
           if(j == 0) return s;
           b[j] = 0;

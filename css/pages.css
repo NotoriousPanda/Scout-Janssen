@@ -1,17 +1,42 @@
 .timer {
   padding-left: 2vw;
-  padding-top: 2vw;
+  padding-top: 0.5vw;
   padding-bottom: 2vw;
+  margin-left: 0%;
   background-color: rgb(50,50,50);
   color: white;
-  font-size: 1.5vw;
+  font-size: 0.8em;
   line-height: 150%;
   font-family: 'Rubik', sans-serif;
 }
 .timerbold {
   background-color: gray ;
-  margin-right: 60vw;
-  padding-top: 0.3vw;
-  padding-bottom: 0.3vw;
+  padding-bottom: .5vw;
+  padding-top: .5vw;
   padding-left: 1.5vw;
+  font-size: 1.5vw;
+}
+.data {
+  font-family: 'Rubik', sans-serif;
+}
+#notes {
+}
+.gray {
+  background-color: rgb(200,200,200);
+}
+.auto {
+}
+
+.row
+{
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+.column
+{
+    display: table-cell;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
