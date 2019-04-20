@@ -33,29 +33,34 @@ function doTheTimerStuff(keyCode){
         clearInterval(timer0Loop);
         timer0Loop = undefined;
       } else {
-        var aClearAndConciseNameToMakeTheProgrammingEasyThatFollowsStrictlyEnforcedSyntaxRules = document.getElementById("timer0");
-        timer0Loop = setInterval(function(){timeFor0++;aClearAndConciseNameToMakeTheProgrammingEasyThatFollowsStrictlyEnforcedSyntaxRules.innerHTML = timeFor0 / 1;}, 1000);
+        var timerElement = document.getElementById("timer0");
+        timer0Loop = setInterval(function(){
+          timeFor0++;timerElement.innerHTML = timeFor0 / 1;}, 1000);
       }
       break;
     case 87:
       timer1Div = document.getElementById("timer1");
-      if(timer1Loop == undefined) timer1Loop = setInterval(function(){timerFor1++; timer1Div.innerHTML = timerFor1 / 1}, 1000);
+      if(timer1Loop == undefined) timer1Loop = setInterval(function(){
+        timerFor1++; timer1Div.innerHTML = timerFor1 / 1}, 1000);
       break;
     case 69:
       timer2Div = document.getElementById("timer2");
-      if(timer2Loop == undefined) timer2Loop = setInterval(function(){timerFor2++; timer2Div.innerHTML = timerFor2 / 1}, 1000);
+      if(timer2Loop == undefined) timer2Loop = setInterval(function(){
+        timerFor2++; timer2Div.innerHTML = timerFor2 / 1}, 1000);
       break;
     case 82:
       timer3Div = document.getElementById("timer3");
-      if(timer3Loop == undefined) timer3Loop = setInterval(function(){timerFor3++; timer3Div.innerHTML = timerFor3 / 1}, 1000);
+      if(timer3Loop == undefined) timer3Loop = setInterval(function(){
+        timerFor3++; timer3Div.innerHTML = timerFor3 / 1}, 1000);
       break;
     case 84:
       if(timer4Loop != undefined){
         clearInterval(timer4Loop);
         timer4Loop = undefined;
       } else {
-        var aClearAndConciseNameToMakeTheProgrammingEasyThatFollowsStrictlyEnforcedSyntaxRules4 = document.getElementById("timer4");
-        timer4Loop = setInterval(function(){timeFor4++;aClearAndConciseNameToMakeTheProgrammingEasyThatFollowsStrictlyEnforcedSyntaxRules4.innerHTML = timeFor4 / 1;}, 1000);
+        var timerElement4 = document.getElementById("timer4");
+        timer4Loop = setInterval(function(){
+          timeFor4++;timerElement4.innerHTML = timeFor4 / 1;}, 1000);
       }
       break;
   }
@@ -76,4 +81,4 @@ function doTheOtherTimerStuff(keyCode){
       timer3Loop = undefined;
       break;
   }
-}
+}s
