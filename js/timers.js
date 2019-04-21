@@ -9,7 +9,9 @@ onkeydown = function(e){
   */
   doTheTimerStuff(e.which);
 }
-
+function resizeIframe(obj) {
+  obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+}
 onkeyup = function(e){
   doTheOtherTimerStuff(e.which);
 }

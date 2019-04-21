@@ -1,20 +1,29 @@
+h1 {
+  font-size: 2.2vw;
+}
+h3 {
+  font-size: 1vw;
+}
+
 .timer {
   padding-left: 2vw;
   padding-top: 0.5vw;
   padding-bottom: 2vw;
   margin-left: 0%;
-  background-color: rgb(50,50,50);
-  color: white;
-  font-size: 0.8em;
+  font-size: 4.5vw;
   line-height: 150%;
   font-family: 'Rubik', sans-serif;
+}
+.darkgrey {
+    background-color: rgb(50,50,50);
+    color: white;
 }
 .timerbold {
   background-color: gray ;
   padding-bottom: .5vw;
   padding-top: .5vw;
   padding-left: 1.5vw;
-  font-size: 1.5vw;
+  font-size: 5vw;
 }
 .data {
   font-family: 'Rubik', sans-serif;
