@@ -27,7 +27,7 @@
 			$position = sanitize($_POST["position"]);
 			$matchNumber = sanitize($_POST["matchNumber"]);
 			$setNumber = sanitize($_POST["setNumber"]);
-			$compLevel = sanitize($_POST["compLevel"]); //qm, ef, qf, sf, f   
+			$compLevel = sanitize($_POST["compLevel"]); //qm, ef, qf, sf, f  
 			$notes = sanitize($_POST["notes"]);
 			$currentTournament = $_ENV["currentTournament"];
 			$currentYear = $_ENV["currentYear"];
