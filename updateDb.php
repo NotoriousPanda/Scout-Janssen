@@ -1,7 +1,7 @@
 <?php
 	$query = "DELTE FROM districts; DELETE FROM events;";
 	$user = "pi";
-	$password = "Mandana2Goody";
+	$password = "sm4llp0tst0ck";
 	$database = new mysqli("localhost", $user, $password, "scout_janssen");
 	if ($database->connect_error) {
 		die("Connection failed: " . $database->connect_error);
