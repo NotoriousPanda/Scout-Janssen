@@ -11,6 +11,7 @@
 					if ($database->connect_error) {
 						echo '</select>';
 						die("unable to connect: " . $database->connect_error);
+					}
 					$events = $database->query($query);
 					$menu = "";
 					if ($events->num_rows > 0) {
