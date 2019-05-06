@@ -4,7 +4,7 @@
 		<form action="/loadTournament.php" method="post">
 			<select name="eventChoice">
 				<?php
-					$query = "SELECT code, name FROM events;";
+					$query = "SELECT code, name FROM events ORDER BY name;";
 					$password = getenv("DBPASS");
 					$user = "pi";
 					$database = new mysqli("localhost", $user, $password, "scout_janssen");
@@ -15,11 +15,11 @@
 					$events = $database->query($query);
 					$menu = "";
 					if ($events->num_rows > 0) {
-						while($event = $result->fetch_assoc()) {
-							$menu .= '<option value="' . $event["code"] . '">' . $event["name"] . '</option>';
+						while($event = $events->fetch_assoc()) {
+							$menu = $menu . '<option value="' . $event["code"] . '">' . $event["name"] . '</option>';
 						}
 					}
-					$menu .= "</select>";
+					$menu = $menu . "</select>";
 					echo $menu;
 				?>
 			<input type="submit" value="Submit" />
