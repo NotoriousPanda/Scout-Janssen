@@ -27,6 +27,10 @@ var timer2Loop;
 var timerFor2 = 0;
 var timer1Loop;
 var timerFor1 = 0;
+function timeChange(){
+  console.log("Time change");
+}
+
 
 function doTheTimerStuff(keyCode){
   timeInterval = 250;
@@ -43,6 +47,7 @@ function doTheTimerStuff(keyCode){
         timer0Loop = setInterval(function(){
           timerFor0 = timerFor0 + timeIncrements;
           timerElement.innerHTML = (timerFor0 / 1).toFixed(2);
+          timeChange();
          }, timeInterval);
       }
       break;
@@ -51,6 +56,8 @@ function doTheTimerStuff(keyCode){
       if(timer1Loop == undefined) timer1Loop = setInterval(function(){
         timerFor1 = timerFor1 + timeIncrements;
         timer1Div.innerHTML = (timerFor1 / 1).toFixed(2);
+        timeChange();
+
       }, timeInterval);
       break;
     case 69:
@@ -58,6 +65,7 @@ function doTheTimerStuff(keyCode){
       if(timer2Loop == undefined) timer2Loop = setInterval(function(){
         timerFor2 = timerFor2 + timeIncrements;
         timer2Div.innerHTML = (timerFor2 / 1).toFixed(2);
+        timeChange();
       }, timeInterval);
       break;
     case 82:
