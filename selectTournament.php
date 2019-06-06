@@ -1,7 +1,7 @@
 <html>
 	<body>
 		<h1>Select tournament below</h1>
-		<form action="/loadTournament.php" method="post">
+		<form action="/updateTournament.php" method="post">
 			<select name="eventChoice">
 				<?php
 					$query = "SELECT code, name FROM events ORDER BY name;";

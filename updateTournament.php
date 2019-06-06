@@ -48,6 +48,7 @@
 				$database->query($query);
 			}
 			shell_exec("echo 'SetEnv TOURN " . $_POST["eventChoice"] . "' >> /etc/apache2/apache2.conf");
+			shell_exec("systemctl restart apache2");
 		?>
 	</body>
 </html>
