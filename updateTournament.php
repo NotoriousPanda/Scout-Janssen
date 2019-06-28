@@ -49,6 +49,6 @@
 			shell_exec("systemctl restart apache2");
 			echo("Tournament Updated:");
 		?>
-		<a href="71.204.66.21/">Back to main page</a>
+		<a href="/">Back to main page</a>
 	</body>
 </html>
