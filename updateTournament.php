@@ -13,6 +13,7 @@
 			}
 			$database->query($query);
 			$option = array('X-TBA-Auth-Key: nGj3OKIzPDXOqAs93AaNHKCZdrKcEXRpxGfl0nvzJyShGmEhVxZzjoHz86UGrolF');
+			echo($_POST["eventChoice"]);
 			$teamsGet = curl_init("https://www.thebluealliance.com/api/v3/events/" . $_POST["eventChoice"] . "/teams/keys");
 			curl_setopt_array(
 				$teamsGet,
@@ -23,7 +24,6 @@
 				)
 			);
 			$teams = curl_exec($teamsGet);
-			echo($teams);
 			curl_close($teamsGet);
 			foreach ($teams as &$teamKey) {
 				$query = "INSERT INTO eventteams (team, tournament) VALUES ('" . $teamsKey . "', '" . $_POST["eventChoice"] . "');";
