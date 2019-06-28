@@ -42,6 +42,7 @@
 			curl_close($matchesGet);
 			$matches = json_decode($matches, true);
 			foreach ($matches as &$match) {
+				echo("Inserting Match");
 				$query = "INSERT INTO matches (code, comp_level, match_number, set_number, red1, red2, red3, blue4, blue5, blue6) VALUES ('" . $matches["key"] . "', '" . $matches["comp_level"] . "', '" . $matches["match_number"] . "', '" . $matches["set_number"] . "', '" . $matches["alliances"]["red"]["team_keys"][0] . "', '" . $matches["alliances"]["red"]["team_keys"][1] . "', '" . $matches["alliances"]["red"]["team_keys"][2] . "', '" . $matches["alliances"]["blue"]["team_keys"][0] . "', '" . $matches["alliances"]["blue"]["team_keys"][1] . "', '" . $matches["alliances"]["blue"]["team_keys"][2] . "');";
 				$database->query($query);
 			}
