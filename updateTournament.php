@@ -1,7 +1,5 @@
 <html>
 	<body>
-		Tournament Updated:
-		<a href="71.204.66.21/">Back to main page</a>
 		<?php
 
 			$query = "DROP FROM matches;";
@@ -49,6 +47,8 @@
 			}
 			shell_exec("echo 'SetEnv TOURN " . $_POST["eventChoice"] . "' >> /etc/apache2/apache2.conf");
 			shell_exec("systemctl restart apache2");
+			echo("Tournament Updated:");
 		?>
+		<a href="71.204.66.21/">Back to main page</a>
 	</body>
 </html>
