@@ -23,6 +23,7 @@
 				)
 			);
 			$teams = curl_exec($teamsGet);
+			echo($teams);
 			curl_close($teamsGet);
 			foreach ($teams as &$teamKey) {
 				$query = "INSERT INTO eventteams (team, tournament) VALUES ('" . $teamsKey . "', '" . $_POST["eventChoice"] . "');";
