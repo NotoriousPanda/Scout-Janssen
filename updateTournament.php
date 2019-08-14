@@ -13,9 +13,9 @@
 			}
 			$database->query($query);
 			$option = array('X-TBA-Auth-Key: nGj3OKIzPDXOqAs93AaNHKCZdrKcEXRpxGfl0nvzJyShGmEhVxZzjoHz86UGrolF');
-			echo($_POST["eventChoice"]);
+			echo($_POST["eventChoice"] . "\n");
 			echo("https://www.thebluealliance.com/api/v3/events/" . $_POST["eventChoice"] . "/teams/keys");
-			/*$teamsGet = curl_init("https://www.thebluealliance.com/api/v3/events/" . $_POST["eventChoice"] . "/teams/keys");
+			$teamsGet = curl_init("https://www.thebluealliance.com/api/v3/events/" . $_POST["eventChoice"] . "/teams/keys");
 			curl_setopt_array(
 				$teamsGet,
 				array(
@@ -50,7 +50,7 @@
 			}
 			shell_exec("echo 'SetEnv TOURN " . $_POST["eventChoice"] . "' >> /etc/apache2/apache2.conf");
 			shell_exec("systemctl restart apache2");
-			echo("Tournament Updated:");*/
+			echo("Tournament Updated:");
 		?>
 		<a href="/">Back to main page</a>
 	</body>
