@@ -26,6 +26,7 @@
 			);
 			$teams = curl_exec($teamsGet);
 			curl_close($teamsGet);
+			$teams = json_decode($teams, true);
 			foreach ($teams as &$teamKey) {
 				$query = "INSERT INTO eventteams (team, tournament) VALUES ('" . $teamsKey . "', '" . $_POST["eventChoice"] . "');";
 				$database->query($query);
@@ -33,13 +34,13 @@
 			unset($teamKey);
 			$matchesGet = curl_init("https://www.thebluealiance.com/api/v3/events/" . $_POST["eventChoice"] . "/matches/simple");
 			curl_setopt_array(
-                                $matchsGet,
-                                array(
-                                        CURLOPT_HTTPHEADER => $option,
-                                        CURLOPT_PROTOCOLS => CURLPROTO_HTTPS,
-                                        CURLOPT_RETURNTRANSFER => true
-                                )
-                        );
+				$matchesGet,
+				array(
+					CURLOPT_HTTPHEADER => $option,
+					CURLOPT_PROTOCOLS => CURLPROTO_HTTPS,
+					CURLOPT_RETURNTRANSFER => true
+				)
+			);
 			$matches = curl_exec($matchesGet);
 			curl_close($matchesGet);
 			$matches = json_decode($matches, true);
@@ -48,6 +49,7 @@
 				$query = "INSERT INTO matches (code, comp_level, match_number, set_number, red1, red2, red3, blue4, blue5, blue6) VALUES ('" . $matches["key"] . "', '" . $matches["comp_level"] . "', '" . $matches["match_number"] . "', '" . $matches["set_number"] . "', '" . $matches["alliances"]["red"]["team_keys"][0] . "', '" . $matches["alliances"]["red"]["team_keys"][1] . "', '" . $matches["alliances"]["red"]["team_keys"][2] . "', '" . $matches["alliances"]["blue"]["team_keys"][0] . "', '" . $matches["alliances"]["blue"]["team_keys"][1] . "', '" . $matches["alliances"]["blue"]["team_keys"][2] . "');";
 				$database->query($query);
 			}
+			unset($match);
 			shell_exec("echo 'SetEnv TOURN " . $_POST["eventChoice"] . "' >> /etc/apache2/apache2.conf");
 			shell_exec("systemctl restart apache2");
 			echo("Tournament Updated:");
