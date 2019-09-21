@@ -2,7 +2,7 @@
 	<body>
 		<?php
 
-			$query = "DROP FROM matches; DROP FROM eventteams;";
+			$query = "DELETE FROM matches; DELETE FROM eventteams;";
 			$password = getenv("DBPASS");
 			$database = new mysqli("localhost", "pi", $password, "scout_janssen");
 			$key = getenv("AUTHKEY");
