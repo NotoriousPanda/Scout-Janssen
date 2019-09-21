@@ -13,8 +13,6 @@
 			}
 			$database->query($query);
 			$option = array('X-TBA-Auth-Key: nGj3OKIzPDXOqAs93AaNHKCZdrKcEXRpxGfl0nvzJyShGmEhVxZzjoHz86UGrolF');
-			echo($_POST["eventChoice"] . "\n");
-			echo("https://www.thebluealliance.com/api/v3/event/" . $_POST["eventChoice"] . "/teams/keys");
 			$teamsGet = curl_init("https://www.thebluealliance.com/api/v3/events/" . $_POST["eventChoice"] . "/teams/keys");
 			curl_setopt_array(
 				$teamsGet,
@@ -28,8 +26,8 @@
 			curl_close($teamsGet);
 			$teams = json_decode($teams, true);
 			foreach ($teams as &$teamKey) {
-				echo($teamsKey);
 				$query = "INSERT INTO eventteams (team, tournament) VALUES ('" . $teamsKey . "', '" . $_POST["eventChoice"] . "');";
+				echo($query);
 				$database->query($query);
 			}
 			unset($teamKey);
@@ -46,9 +44,7 @@
 			curl_close($matchesGet);
 			$matches = json_decode($matches, true);
 			foreach ($matches as &$match) {
-				echo("Inserting Match ");
 				$query = "INSERT INTO matches (code, comp_level, match_number, set_number, red1, red2, red3, blue1, blue2, blue3) VALUES ('" . $match["key"] . "', '" . $match["comp_level"] . "', '" . $match["match_number"] . "', '" . $match["set_number"] . "', '" . $match["alliances"]["red"]["team_keys"][0] . "', '" . $match["alliances"]["red"]["team_keys"][1] . "', '" . $match["alliances"]["red"]["team_keys"][2] . "', '" . $match["alliances"]["blue"]["team_keys"][0] . "', '" . $match["alliances"]["blue"]["team_keys"][1] . "', '" . $match["alliances"]["blue"]["team_keys"][2] . "');";
-				echo($query);
 				$database->query($query);
 			}
 			unset($match);
