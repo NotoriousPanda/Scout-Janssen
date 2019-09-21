@@ -48,6 +48,7 @@
 			foreach ($matches as &$match) {
 				echo("Inserting Match ");
 				$query = "INSERT INTO matches (code, comp_level, match_number, set_number, red1, red2, red3, blue4, blue5, blue6) VALUES ('" . $match["key"] . "', '" . $match["comp_level"] . "', '" . $match["match_number"] . "', '" . $match["set_number"] . "', '" . $match["alliances"]["red"]["team_keys"][0] . "', '" . $match["alliances"]["red"]["team_keys"][1] . "', '" . $match["alliances"]["red"]["team_keys"][2] . "', '" . $match["alliances"]["blue"]["team_keys"][0] . "', '" . $match["alliances"]["blue"]["team_keys"][1] . "', '" . $match["alliances"]["blue"]["team_keys"][2] . "');";
+				echo($query);
 				$database->query($query);
 			}
 			unset($match);
