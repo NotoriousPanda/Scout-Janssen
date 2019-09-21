@@ -13,7 +13,7 @@
 			}
 			$database->query($query);
 			$option = array('X-TBA-Auth-Key: nGj3OKIzPDXOqAs93AaNHKCZdrKcEXRpxGfl0nvzJyShGmEhVxZzjoHz86UGrolF');
-			$teamsGet = curl_init("https://www.thebluealliance.com/api/v3/events/" . $_POST["eventChoice"] . "/teams/keys");
+			$teamsGet = curl_init("https://www.thebluealliance.com/api/v3/event/" . $_POST["eventChoice"] . "/teams/keys");
 			curl_setopt_array(
 				$teamsGet,
 				array(
