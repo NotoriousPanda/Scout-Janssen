@@ -33,7 +33,7 @@
 				$database->query($query);
 			}
 			unset($teamKey);
-			$matchesGet = curl_init("https://www.thebluealiance.com/api/v3/event/" . $_POST["eventChoice"] . "/matches/simple");
+			$matchesGet = curl_init("https://www.thebluealliance.com/api/v3/event/" . $_POST["eventChoice"] . "/matches/simple");
 			curl_setopt_array(
 				$matchesGet,
 				array(
