@@ -27,8 +27,8 @@
 			$teams = curl_exec($teamsGet);
 			curl_close($teamsGet);
 			$teams = json_decode($teams, true);
-			echo($teams);
 			foreach ($teams as &$teamKey) {
+				echo($teamsKey);
 				$query = "INSERT INTO eventteams (team, tournament) VALUES ('" . $teamsKey . "', '" . $_POST["eventChoice"] . "');";
 				$database->query($query);
 			}
