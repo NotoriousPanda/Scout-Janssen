@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/timers.js" type="text/javascript"></script>
+  <script src="js/cartesian.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+</head>
+<body>
+  <form name="form" action="saveReport.php" onsubmit="return validateForm()" method="post">
+  <div class="column darkgrey" style="">
+    <iframe src="timer.html" frameborder="0" scrolling="no" style="height: 0%; width: 20vw; z-index: 0;"></iframe>
+    <iframe src="timer.html" frameborder="0" scrolling="no" style="height: 27vw; width: 20vw; z-index:5;"></iframe>
+  </div>
+  <div class="data column gray">
+    <div id="teamdata">
+      <h1>Team Auto:</h1>
+      <div id="teamauto" class="auto">
+        <h3>Cargo:
+        <input type="text" name="cargoAuto"></h3>
+        <h3>Hatches:
+        <input type="text" name="hatchAuto"></h3><br>
+      </div>
+      <h1>Team Teleop:</h1>
+      <div id="teamteleop" class="auto">
+        <h3>Cargo:
+        <input type="text" name="cargoTeleop"></h3>
+        <h3>Hatches:
+        <input type="text" name="hatchTeleop"></h3><br>
+      </div>
+    </div>
+  </div>
+  <div class="data column darkgrey">
+    <h1>Endgame:</h1>
+    <div id="climb">
+      <h3>Climb Level:
+      <input type="text" name="climbLevel"></h3>
+    </div>
+    <div id="climbassist">
+      <h3>Climb Assist to Level:
+      <input type="text" name="climbAssist"></h3>
+    </div>
+  </div>
+  <div id="notes" class="row column">
+      Additional Notes: <input type="text" name="notes" style="margin-top: 1vw;"><br>
+      <input type="submit" value="Submit Scouting" style="margin-top: 0.5vw;">
+  </div>
+</body>
+</html>

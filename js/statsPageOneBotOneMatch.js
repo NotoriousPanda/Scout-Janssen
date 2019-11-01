@@ -1,5 +1,7 @@
 var info = getInfo();
 
+var {} = info;
+
 var totalHatches = info["hatchauto"] + info["hatchteleop"];
 var totalCargo = info["cargoauto"] + info["cargoteleop"];
 var totalHatchPoints = totalHatches * 2;
