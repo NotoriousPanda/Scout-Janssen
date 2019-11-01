@@ -7,26 +7,77 @@
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 </head>
 <body>
+  <div id="navbar">
+      <a href="form.html" class="ne">Form</a>
+      <a href="index.html" class="ne">Main Page</a>
+      <a href="https://phishing.fish/" class="ne">Phishing.fish</a>
+  </div>
   <form name="form" action="saveReport.php" onsubmit="return validateForm()" method="post">
-  <div class="column darkgrey" style="">
-    <iframe src="timer.html" frameborder="0" scrolling="no" style="height: 0%; width: 20vw; z-index: 0;"></iframe>
-    <iframe src="timer.html" frameborder="0" scrolling="no" style="height: 27vw; width: 20vw; z-index:5;"></iframe>
+  <div class="timer darkgrey">
+    <div class="table-wrapper" position="center">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Time on defense (q)</th>
+                <th>Time inoperable (t)</th>
+                <th>Defense on Bot 1 (w)</th>
+                <th>Defense on Bot 2 (e)</th>
+                <th>Defense on Bot 3 (r)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td id=timer0><input type="hidden" name="timeOnDefense" class="timerbold">0.00</input></td>
+                <td id=timer4><input type="hidden" name="timeBroke" class="timerbold">0.00</input></td>
+                <td id=timer1><input type="hidden" name="timeOnBot1" class="timerbold">0.00</input></td>
+                <td id=timer2><input type="hidden" name="timeOnBot2" class="timerbold">0.00</input></td>
+                <td id=timer3><input type="hidden" name="timeOnBot3" class="timerbold">0.00</input></td>
+            </tr>
+            <tbody>
+        </table>
+    </div>
+  </div>
+  <div class="data column darkgrey">
+    <h1>Before match:</h1>
+    <div id="climb">
+      <h3>Starting climb:
+      <input type="text" name="jumpLevel"></h3>
+      <h3>Team number:
+      <input type="text" name="teamNumber"></h3>
+      <h3>Match number:
+      <input type="text" name="matchNumber"></h3>
+      <h3>Bot position:
+      <input type="text" name="position"></h3>
+      <h3>Set number (If qualifying match, enter 1. This is the set in finals/semis.):
+      <input type="text" name="setNumber"></h3>
+    </div>
   </div>
   <div class="data column gray">
     <div id="teamdata">
       <h1>Team Auto:</h1>
       <div id="teamauto" class="auto">
-        <h3>Cargo:
-        <input type="text" name="cargoAuto"></h3>
-        <h3>Hatches:
-        <input type="text" name="hatchAuto"></h3><br>
+        <h3>Cargo made:
+        <input type="text" name="CA"></h3>
+        <h3>Cargo missed:
+        <input type="text" name="CAM"></h3>
+        <h3>Hatches made:
+        <input type="text" name="HA"></h3>
+        <h3>Hatches missed:
+        <input type="text" name="HAM"></h3>
       </div>
-      <h1>Team Teleop:</h1>
+    </div>
+  </div>
+    <div class="data column gray">
       <div id="teamteleop" class="auto">
-        <h3>Cargo:
-        <input type="text" name="cargoTeleop"></h3>
-        <h3>Hatches:
-        <input type="text" name="hatchTeleop"></h3><br>
+        <h1>Team Teleop:</h1>
+        <h3>Cargo made:
+        <input type="text" name="CT"></h3>
+        <h3>Cargo missed:
+        <input type="text" name="CTM"></h3>
+        <h3>Hatches made:
+        <input type="text" name="HT"></h3>
+        <h3>Hatches missed:
+        <input type="text" name="HTM"></h3>
       </div>
     </div>
   </div>
@@ -37,11 +88,17 @@
       <input type="text" name="climbLevel"></h3>
     </div>
     <div id="climbassist">
-      <h3>Climb Assist to Level:
-      <input type="text" name="climbAssist"></h3>
+      <h3>How many assisted:
+      <input type="text" name="climbAssistCount"></h3>
     </div>
   </div>
   <div id="notes" class="row column">
+      <input type="checkbox" name="highHatch">Bot can reach high hatches<br>
+      <input type="checkbox" name="highCargo">Bot can reach high cargo<br>
+      <input type="checkbox" name="highCargo">Mechanical issues<br>
+      <input type="checkbox" name="highCargo">Connection issues<br>
+      <h3>Offensive penalties <input type="text" name="offensivePenalties"></h3>
+      <h3>Defensive penalties <input type="text" name="defensivePenalties"></h3>
       Additional Notes: <input type="text" name="notes" style="margin-top: 1vw;"><br>
       <input type="submit" value="Submit Scouting" style="margin-top: 0.5vw;">
   </div>
