@@ -85,6 +85,7 @@ file_put_contents("log.txt", "got to jump level");
 			
 			echo($query);
 			$dbconn->query($query);
+			echo("hi");
 		?>
 	</body>
 </html>
