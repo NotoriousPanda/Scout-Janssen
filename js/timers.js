@@ -122,3 +122,4 @@
 else{
   timer()
 }*/
+setInterval(function(){for(var i = 0; i < document.getElementsByClassName("timerbold").length; i++){document.getElementsByClassName("timerbold")[i].value = document.getElementById("timer" + i).innerText}}, 100);
