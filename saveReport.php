@@ -9,31 +9,53 @@
 			  $data = htmlspecialchars($data);
 			  return $data;
 			}
+			function console_log( $data ){
+			  echo '<script>';
+			  echo 'console.log('. json_encode( $data ) .')';
+			  echo '</script>';
+			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
+			console_log("Got to jumpLevel");
 			$HA = sanitize($_POST["HA"]);
+			console_log("Got to HA");
 			$HAM = sanitaize($_POST["HAM"]);
+			console_log("Got to HAM");
 			$CA = sanitize($_POST["CA"]);
+			console_log("Got to CA");
 			$CAM = sanitaize($_POST["CAM"]);
+			console_log("Got to CAM");
 			$HT = sanitize($_POST["HT"]);
+			console_log("Got to HT");
 			$HTM = sanitaize($_POST["HTM"]);
+			console_log("Got to HTM");
 			$CT = sanitize($_POST["CT"]);
+			console_log("Got to CT");
 			$CTM = sanitaize($_POST["CTM"]);
+			console_log("Got to CTM");
 			if (isset($_POST["highCargo"])) {
 				$highCargo = "true";
 			} else {
 				$highCargo = "false";
 			}
+			console_log("Got to highCargo");
 			if (isset($_POST["highHatch"])) {
 				$highHatch = "true";
 			} else {
 				$highHatch = "false";
 			}
+			console_log("Got to highHatch");
 			$timeOnDefense = sanitize($_POST["timeOnDefense"]);
+			console_log("Got to timeOnDefense");
 			$timeOnBot1 = sanitize($_POST["timeOnBot1"]);
+			console_log("Got to timeOnBot1");
 			$timeOnBot2 = sanitize($_POST["timeOnBot2"]);
+			console_log("Got to timeOnBot2");
 			$timeOnBot3 = sanitize($_POST["timeOnBot3"]);
+			console_log("Got to timeOnBot3");
 			$climbLevel = sanitize($_POST["climbLevel"]);
+			console_log("Got to climbLevel");
 			$timeBroke = sanitize($_POST["timeBroke"]);
+			console_log("Got to timeBroke");
 			$climbAssistCount = sanitize($_POST["climbAssistCount"]);
 			if (isset($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
