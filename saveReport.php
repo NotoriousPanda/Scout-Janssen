@@ -91,7 +91,7 @@
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
-			echo("hi");
+			echo(" dev.dance and phishing.fish are better");
 		?>
 	</body>
 </html>
