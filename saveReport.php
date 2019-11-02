@@ -9,48 +9,53 @@
 			  $data = htmlspecialchars($data);
 			  return $data;
 			}
+			function console_log( $data ){
+			  echo '<script>';
+			  echo 'console.log('. json_encode( $data ) .')';
+			  echo '</script>';
+			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
-			echo("Got to jumpLevel");
+			console_log("Got to jumpLevel");
 			$HA = sanitize($_POST["HA"]);
-			echo("Got to HA");
+			console_log("Got to HA");
 			$HAM = sanitaize($_POST["HAM"]);
-			echo("Got to HAM");
+			console_log("Got to HAM");
 			$CA = sanitize($_POST["CA"]);
-			echo("Got to CA");
+			console_log("Got to CA");
 			$CAM = sanitaize($_POST["CAM"]);
-			echo("Got to CAM");
+			console_log("Got to CAM");
 			$HT = sanitize($_POST["HT"]);
-			echo("Got to HT");
+			console_log("Got to HT");
 			$HTM = sanitaize($_POST["HTM"]);
-			echo("Got to HTM");
+			console_log("Got to HTM");
 			$CT = sanitize($_POST["CT"]);
-			echo("Got to CT");
+			console_log("Got to CT");
 			$CTM = sanitaize($_POST["CTM"]);
-			echo("Got to CTM");
+			console_log("Got to CTM");
 			if (isset($_POST["highCargo"])) {
 				$highCargo = "true";
 			} else {
 				$highCargo = "false";
 			}
-			echo("Got to highCargo");
+			console_log("Got to highCargo");
 			if (isset($_POST["highHatch"])) {
 				$highHatch = "true";
 			} else {
 				$highHatch = "false";
 			}
-			echo("Got to highHatch");
+			console_log("Got to highHatch");
 			$timeOnDefense = sanitize($_POST["timeOnDefense"]);
-			echo("Got to timeOnDefense");
+			console_log("Got to timeOnDefense");
 			$timeOnBot1 = sanitize($_POST["timeOnBot1"]);
-			echo("Got to timeOnBot1");
+			console_log("Got to timeOnBot1");
 			$timeOnBot2 = sanitize($_POST["timeOnBot2"]);
-			echo("Got to timeOnBot2");
+			console_log("Got to timeOnBot2");
 			$timeOnBot3 = sanitize($_POST["timeOnBot3"]);
-			echo("Got to timeOnBot3");
+			console_log("Got to timeOnBot3");
 			$climbLevel = sanitize($_POST["climbLevel"]);
-			echo("Got to climbLevel");
+			console_log("Got to climbLevel");
 			$timeBroke = sanitize($_POST["timeBroke"]);
-			echo("Got to timeBroke");
+			console_log("Got to timeBroke");
 			$climbAssistCount = sanitize($_POST["climbAssistCount"]);
 			if (isset($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
