@@ -8,7 +8,7 @@
 			}
 			$query = "SELECT * FROM ?";
 			$statement = $database->prepare($query);
-			echo($database->$error);
+			echo($database->error);
 			/*$statement->bind_param("s", "reports");
 			echo($query);
 			try {
