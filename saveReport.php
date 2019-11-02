@@ -73,11 +73,8 @@ file_put_contents("log.txt", "got to jump level");
 
 
 
-			$servername = "localhost";
-			$username = "root";
 			$password = getenv("DBPASS");
-
-			$dbconn = new mysqli($servername, $username, $password, "scout_janssen");
+			$database = new mysqli("localhost", "pi", $password, "scout_janssen");
 
 			if ($dbconn->connect_error) {
 				die("Connection to database failed" . $conn->connect_error);
