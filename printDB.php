@@ -18,7 +18,7 @@
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
-			echo(gettype($result);
+			echo(gettype($result));
 		?>
 	</body>
 </html>
