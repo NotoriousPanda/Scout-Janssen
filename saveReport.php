@@ -2,15 +2,15 @@
 <html>
 	<body>
 		<?php
-file_put_contents("log.txt", "got to jump level");
+//file_put_contents("log.txt", "got to jump level");
 			function sanitize($data) {
-			  /*$data = trim($data);
+			  $data = trim($data);
 			  $data = stripslashes($data);
-			  $data = htmlspecialchars($data);*/
+			  $data = htmlspecialchars($data);
 			  return $data;
 			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
-			file_put_contents("log.txt", "got to jump level");
+			//file_put_contents("log.txt", "got to jump level");
 			$HA = sanitize($_POST["HA"]);
 			//file_put_contents("Got to HA", 3, "log.txt");
 			$HAM = sanitize($_POST["HAM"]);
@@ -82,7 +82,7 @@ file_put_contents("log.txt", "got to jump level");
 
 			$query = "INSERT INTO reports (jumpLevel, HA, CA, HT, CT, highCargo, highHatch, timeOnDefense, timeOnBot1, timeOnBot2, timeOnBot3, climbLevel, timeBroke, mechanicalIssues, connectionIssues, position, teamNumber, matchNumber, setNumber, compLevel, notes, offensivePenalties, defensivePenalties, HAM, CAM, HTM, CTM, climbAssistCount)
 			VALUES (" . $jumpLevel .", " . $HA . ", " . $CA . ", " . $HT . ", " . $CT . ", '" . $highCargo . "', '" . $highHatch . "', " . $timeOnDefense . ", " . $timeOnBot1 . ", " . $timeOnBot2 . ", " . $timeOnBot3 . ", " . $climbLevel . ", " . $timeBroke . ", '" . $mechanicalIssues . "', '" . $connectionIssues . "', " . $position . ", " . $teamNumber . ", " . $matchNumber . ", " . $setNumber . ", '" . $compLevel . "', '" . $notes . "', " . $offensivePenalties . ", " . $defensivePenalties . ", " . $HAM . ", " . $CAM . ", " . $HTM . ", " . $CTM . ", " . $climbAssistCount . ");";
-			
+
 			echo($query);
 			try {
 				$database->query($query);
