@@ -85,7 +85,7 @@ file_put_contents("log.txt", "got to jump level");
 			
 			echo($query);
 			try {
-				$databse->query($query);
+				$database->query($query);
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
