@@ -1,3 +1,3 @@
 <?php
-	echo shell_exec("sudo echo \"hi\" 2>&1");
+	echo shell_exec("sudo git pull 2>&1");
 ?>
