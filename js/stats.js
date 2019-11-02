@@ -78,7 +78,7 @@ function calcBotReliantMatch(info){
 }
 
 async function getReports(){
-  return (await fetch("http://71.204.66.21/printDB.php/?table=reports", {method: "GET", mode: "cors"})).json();
+  return (await fetch("http://71.204.66.21/printDB.php/?table=reports")).json();
 }
 
 async function run(){
