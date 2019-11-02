@@ -87,6 +87,7 @@
 			echo($query);
 			try {
 				$statement->execute();
+				echo($statement->error);
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
