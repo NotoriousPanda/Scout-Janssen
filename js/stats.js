@@ -78,9 +78,18 @@ function calcBotReliantMatch(info){
 }
 
 async function getReports(){
-  return (await fetch("http://71.204.66.21/printDB.php/?table=reports")).json();
+  return (await fetch("http://71.204.66.21/printDB.php/?table=reports", {method: "GET", mode: "cors"})).json();
 }
 
 async function run(){
-  var reports = getReports();
+  var reports = await getReports();
+}
+
+function getReportsOfOneBot(teamNum, reports){
+  var rep = [];
+  for(i of reports){
+    if(i.teamNumber == teamNum){
+      rep.push(i);
+    }
+  }
 }
