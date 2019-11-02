@@ -13,19 +13,19 @@
 			//file_put_contents("Got to jumpLevel", 3, "log.txt");
 			$HA = sanitize($_POST["HA"]);
 			//file_put_contents("Got to HA", 3, "log.txt");
-			$HAM = sanitaize($_POST["HAM"]);
+			$HAM = sanitize($_POST["HAM"]);
 			//file_put_contents("Got to HAM", 3, "log.txt");
 			$CA = sanitize($_POST["CA"]);
 			//file_put_contents("Got to CA", 3, "log.txt");
-			$CAM = sanitaize($_POST["CAM"]);
+			$CAM = sanitize($_POST["CAM"]);
 			//file_put_contents("Got to CAM", 3, "log.txt");
 			$HT = sanitize($_POST["HT"]);
 			//file_put_contents("Got to HT", 3, "log.txt");
-			$HTM = sanitaize($_POST["HTM"]);
+			$HTM = sanitize($_POST["HTM"]);
 			//file_put_contents("Got to HTM", 3, "log.txt");
 			$CT = sanitize($_POST["CT"]);
 			//file_put_contents("Got to CT", 3, "log.txt");
-			$CTM = sanitaize($_POST["CTM"]);
+			$CTM = sanitize($_POST["CTM"]);
 			//file_put_contents("Got to CTM", 3, "log.txt");
 			if (!empty($_POST["highCargo"])) {
 				$highCargo = "true";
