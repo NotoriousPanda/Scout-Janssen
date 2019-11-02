@@ -15,47 +15,47 @@
 			  echo '</script>';
 			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
-			console_log("Got to jumpLevel");
+			error_log("Got to jumpLevel", 3, "./log.txt");
 			$HA = sanitize($_POST["HA"]);
-			console_log("Got to HA");
+			error_log("Got to HA", 3, "./log.txt");
 			$HAM = sanitaize($_POST["HAM"]);
-			console_log("Got to HAM");
+			error_log("Got to HAM", 3, "./log.txt");
 			$CA = sanitize($_POST["CA"]);
-			console_log("Got to CA");
+			error_log("Got to CA", 3, "./log.txt");
 			$CAM = sanitaize($_POST["CAM"]);
-			console_log("Got to CAM");
+			error_log("Got to CAM", 3, "./log.txt");
 			$HT = sanitize($_POST["HT"]);
-			console_log("Got to HT");
+			error_log("Got to HT", 3, "./log.txt");
 			$HTM = sanitaize($_POST["HTM"]);
-			console_log("Got to HTM");
+			error_log("Got to HTM", 3, "./log.txt");
 			$CT = sanitize($_POST["CT"]);
-			console_log("Got to CT");
+			error_log("Got to CT", 3, "./log.txt");
 			$CTM = sanitaize($_POST["CTM"]);
-			console_log("Got to CTM");
+			error_log("Got to CTM", 3, "./log.txt");
 			if (isset($_POST["highCargo"])) {
 				$highCargo = "true";
 			} else {
 				$highCargo = "false";
 			}
-			console_log("Got to highCargo");
+			error_log("Got to highCargo", 3, "./log.txt");
 			if (isset($_POST["highHatch"])) {
 				$highHatch = "true";
 			} else {
 				$highHatch = "false";
 			}
-			console_log("Got to highHatch");
+			error_log("Got to highHatch", 3, "./log.txt");
 			$timeOnDefense = sanitize($_POST["timeOnDefense"]);
-			console_log("Got to timeOnDefense");
+			error_log("Got to timeOnDefense", 3, "./log.txt");
 			$timeOnBot1 = sanitize($_POST["timeOnBot1"]);
-			console_log("Got to timeOnBot1");
+			error_log("Got to timeOnBot1", 3, "./log.txt");
 			$timeOnBot2 = sanitize($_POST["timeOnBot2"]);
-			console_log("Got to timeOnBot2");
+			error_log("Got to timeOnBot2", 3, "./log.txt");
 			$timeOnBot3 = sanitize($_POST["timeOnBot3"]);
-			console_log("Got to timeOnBot3");
+			error_log("Got to timeOnBot3", 3, "./log.txt");
 			$climbLevel = sanitize($_POST["climbLevel"]);
-			console_log("Got to climbLevel");
+			error_log("Got to climbLevel", 3, "./log.txt");
 			$timeBroke = sanitize($_POST["timeBroke"]);
-			console_log("Got to timeBroke");
+			error_log("Got to timeBroke", 3, "./log.txt");
 			$climbAssistCount = sanitize($_POST["climbAssistCount"]);
 			if (isset($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
