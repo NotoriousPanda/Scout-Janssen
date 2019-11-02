@@ -76,7 +76,7 @@ file_put_contents("log.txt", "got to jump level");
 			$password = getenv("DBPASS");
 			$database = new mysqli("localhost", "pi", $password, "scout_janssen");
 
-			if ($dbconn->connect_error) {
+			if ($database->connect_error) {
 				die("Connection to database failed" . $conn->connect_error);
 			}
 
@@ -85,7 +85,7 @@ file_put_contents("log.txt", "got to jump level");
 			
 			echo($query);
 			try {
-				$dbconn->query($query);
+				$databse->query($query);
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
