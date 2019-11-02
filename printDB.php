@@ -1,5 +1,4 @@
-<html>
-	<body>
+
 		<?php
 			$password = getenv("DBPASS");
 			$database = new mysqli("localhost", "pi", $password, "scout_janssen");
@@ -13,5 +12,3 @@
 				echo(json_encode($result));
 			}
 		?>
-	</body>
-</html>
