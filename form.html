@@ -12,7 +12,7 @@
       <a href="form.html" class="ne">Form</a>
       <a href="index.html" class="ne">Main Page</a>
   </div>
-  <form name="form" action="saveReport.php" onsubmit="" method="post">
+  <form name="form" action="saveReport.php" onsubmit="" method="post" id="report">
   <div class="timer darkgrey">
     <div class="table-wrapper" position="center">
         <table class="fl-table">
@@ -47,7 +47,7 @@
       <h3>Match number:
       <input type="text" name="matchNumber"></h3>
       <h3>Type of match:
-      <select>
+      <select form="report">
         <option value="qm" selected="selected">Qualifiying match</option>
         <option value="ef">Round of 16</option>
         <option value="qf">Quarter finals</option>
