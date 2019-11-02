@@ -27,13 +27,13 @@
 			//file_put_contents("Got to CT", 3, "log.txt");
 			$CTM = sanitaize($_POST["CTM"]);
 			//file_put_contents("Got to CTM", 3, "log.txt");
-			if (isset($_POST["highCargo"])) {
+			if (!empty($_POST["highCargo"])) {
 				$highCargo = "true";
 			} else {
 				$highCargo = "false";
 			}
 			//file_put_contents("Got to highCargo", 3, "log.txt");
-			if (isset($_POST["highHatch"])) {
+			if (!empty($_POST["highHatch"])) {
 				$highHatch = "true";
 			} else {
 				$highHatch = "false";
@@ -52,12 +52,12 @@
 			$timeBroke = sanitize($_POST["timeBroke"]);
 			//file_put_contents("Got to timeBroke", 3, "log.txt");
 			$climbAssistCount = sanitize($_POST["climbAssistCount"]);
-			if (isset($_POST["mechanicalIssues"])) {
+			if (!empty($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
 			} else {
 				$mechanicalIssues = "false";
 			}
-			if (isset($_POST["connectionIssues"])) {
+			if (!empty($_POST["connectionIssues"])) {
 				$connectionIssues = "true";
 			} else {
 				$connectionIssues = "false";
