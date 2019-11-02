@@ -4,53 +4,53 @@
 		<?php
 
 			function sanitize($data) {
-			  $data = trim($data);
+			  /*$data = trim($data);
 			  $data = stripslashes($data);
-			  $data = htmlspecialchars($data);
+			  $data = htmlspecialchars($data);*/
 			  return $data;
 			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
-			error_log("Got to jumpLevel", 3, "log.txt");
+			file_put_contents("Got to jumpLevel", 3, "log.txt");
 			$HA = sanitize($_POST["HA"]);
-			error_log("Got to HA", 3, "log.txt");
+			file_put_contents("Got to HA", 3, "log.txt");
 			$HAM = sanitaize($_POST["HAM"]);
-			error_log("Got to HAM", 3, "log.txt");
+			file_put_contents("Got to HAM", 3, "log.txt");
 			$CA = sanitize($_POST["CA"]);
-			error_log("Got to CA", 3, "log.txt");
+			file_put_contents("Got to CA", 3, "log.txt");
 			$CAM = sanitaize($_POST["CAM"]);
-			error_log("Got to CAM", 3, "log.txt");
+			file_put_contents("Got to CAM", 3, "log.txt");
 			$HT = sanitize($_POST["HT"]);
-			error_log("Got to HT", 3, "log.txt");
+			file_put_contents("Got to HT", 3, "log.txt");
 			$HTM = sanitaize($_POST["HTM"]);
-			error_log("Got to HTM", 3, "log.txt");
+			file_put_contents("Got to HTM", 3, "log.txt");
 			$CT = sanitize($_POST["CT"]);
-			error_log("Got to CT", 3, "log.txt");
+			file_put_contents("Got to CT", 3, "log.txt");
 			$CTM = sanitaize($_POST["CTM"]);
-			error_log("Got to CTM", 3, "log.txt");
+			file_put_contents("Got to CTM", 3, "log.txt");
 			if (isset($_POST["highCargo"])) {
 				$highCargo = "true";
 			} else {
 				$highCargo = "false";
 			}
-			error_log("Got to highCargo", 3, "log.txt");
+			file_put_contents("Got to highCargo", 3, "log.txt");
 			if (isset($_POST["highHatch"])) {
 				$highHatch = "true";
 			} else {
 				$highHatch = "false";
 			}
-			error_log("Got to highHatch", 3, "log.txt");
+			file_put_contents("Got to highHatch", 3, "log.txt");
 			$timeOnDefense = sanitize($_POST["timeOnDefense"]);
-			error_log("Got to timeOnDefense", 3, "log.txt");
+			file_put_contents("Got to timeOnDefense", 3, "log.txt");
 			$timeOnBot1 = sanitize($_POST["timeOnBot1"]);
-			error_log("Got to timeOnBot1", 3, "log.txt");
+			file_put_contents("Got to timeOnBot1", 3, "log.txt");
 			$timeOnBot2 = sanitize($_POST["timeOnBot2"]);
-			error_log("Got to timeOnBot2", 3, "log.txt");
+			file_put_contents("Got to timeOnBot2", 3, "log.txt");
 			$timeOnBot3 = sanitize($_POST["timeOnBot3"]);
-			error_log("Got to timeOnBot3", 3, "log.txt");
+			file_put_contents("Got to timeOnBot3", 3, "log.txt");
 			$climbLevel = sanitize($_POST["climbLevel"]);
-			error_log("Got to climbLevel", 3, "log.txt");
+			file_put_contents("Got to climbLevel", 3, "log.txt");
 			$timeBroke = sanitize($_POST["timeBroke"]);
-			error_log("Got to timeBroke", 3, "log.txt");
+			file_put_contents("Got to timeBroke", 3, "log.txt");
 			$climbAssistCount = sanitize($_POST["climbAssistCount"]);
 			if (isset($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
