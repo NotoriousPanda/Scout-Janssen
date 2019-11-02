@@ -39,12 +39,12 @@
 			if (isset($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
 			} else {
-				$highCargo = "false";
+				$mechanicalIssues = "false";
 			}
-			if (isset($_POST["highCargo"])) {
-				$highCargo = "true";
+			if (isset($_POST["connectionIssues"])) {
+				$connectionIssues = "true";
 			} else {
-				$highCargo = "false";
+				$connectionIssues = "false";
 			}
 			$position = sanitize($_POST["position"]);
 			$teamNumber = sanitize($_POST["teamNumber"]);
@@ -67,5 +67,6 @@
 				die("Connection to database failed" . $conn->connect_error);
 			}
 
-			$query = "INSERT INTO reports(jumpLevel, HA, CA, HT, CT, highCargo, highHatch, timeOnDefense, timeOnBot1, timeOnBot2, timeOnBot3, climbLevel, timeBroke, habAssistLevel2, habAssistLevel3, mechanicalIssues, connectionIssues, position, teamNumber, matchNumber, setNumber, compLevel, notes, offensivePenalties, defensivePenalties, HAM, CAM, HTM, CTM) VALUES(" . $jumpLevel .", " . $HA . ", " . $HT . ", " . $CT . ", '" . $highCargo . "', '" . $highHatch . "', " . $timeOnDefense . ", " . $timeOnBot1 . ", " . $timeOnBot2 . ", " . $timeOnBot3 . ", " . $climbLevel . ", " . $timeBroke . ", " . $habAssistLevel2 . ", " . $habAssistLevel3 . ", '" . $mechanicalIssues . "', '" . $connectionIssues . "', " . $position . ", " . $teamNumber . ", " . $matchNumber . ", " . $setNumber . ", '" . $compLevel . "', '" . $notes . "', " . $offensivePenalties . ", " . $defensivePenalties . ", " . $HAM . ", " . $CAM . ", " . $HTM . ", " . $CTM . ");");
+			$query = "INSERT INTO reports (jumpLevel, HA, CA, HT, CT, highCargo, highHatch, timeOnDefense, timeOnBot1, timeOnBot2, timeOnBot3, climbLevel, timeBroke, habAssistLevel2, habAssistLevel3, mechanicalIssues, connectionIssues, position, teamNumber, matchNumber, setNumber, compLevel, notes, offensivePenalties, defensivePenalties, HAM, CAM, HTM, CTM)
+			VALUES (" . $jumpLevel .", " . $HA . ", " . $HT . ", " . $CT . ", '" . $highCargo . "', '" . $highHatch . "', " . $timeOnDefense . ", " . $timeOnBot1 . ", " . $timeOnBot2 . ", " . $timeOnBot3 . ", " . $climbLevel . ", " . $timeBroke . ", " . $habAssistLevel2 . ", " . $habAssistLevel3 . ", '" . $mechanicalIssues . "', '" . $connectionIssues . "', " . $position . ", " . $teamNumber . ", " . $matchNumber . ", " . $setNumber . ", '" . $compLevel . "', '" . $notes . "', " . $offensivePenalties . ", " . $defensivePenalties . ", " . $HAM . ", " . $CAM . ", " . $HTM . ", " . $CTM . ");");
 			$dbconn->query($query);

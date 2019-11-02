@@ -1,0 +1,16 @@
+td {
+  border-collapse: collapse;
+  border-spacing: 5px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 0.5vw;
+  width: 50%;
+  display: flex;
+}
+tr {
+  padding-bottom: 3vw;
+  background-color: lightgrey;
+}
+th {
+  font-size: 2vw;
+}
