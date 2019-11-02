@@ -92,4 +92,6 @@ function getReportsOfOneBot(teamNum, reports){
       rep.push(i);
     }
   }
+
+  return rep;
 }
