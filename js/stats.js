@@ -1,4 +1,6 @@
-function calcBot(info){
+
+//Takes one bot's match
+function calcBotUnreliant(info){
 
   info.totalHatches = info["HA"] + info["HT"];
   info.totalCargo = info["CA"] + info["CT"];
@@ -40,20 +42,33 @@ function calcBot(info){
   info.totalContribution = info.totalOffensePoints + info.totalDefensePoints;
 
   info.netContribution = info.netDefensePoints + info.netOffensePoints;
+
+  return info;
 }
 
+//Takes array of variables, replaces ? with them
 function average(variables, s){
+  var sum = 0;
   for(i of variables){
-    eval(s.replace("?", i));
+    sum += eval(s.replace("?", i));
   }
+
+  sum /= variables.length;
 }
 
+//Takes one bot's all matches as info
 function getAllAverageDataOnBot(info){
-  var bot = {};
-  for(i of info){
-    for(j of i){
-      
+  //var bot = {};
+  var keys = Object.keys(info);
+  var subKeys = Object.keys(info[keys[0]]);
+  for(var i = 0; i < Object.entries(info[keys[0]]).length; i++){
+    var variables = [];
+    for(var j = 0; j < Object.entries(info).length; j++){
+      variables[j] = info[keys[i]][subKeys[j]];
     }
+    info[keys.length][subKeys[i] + "Average"] = average(variables, "?");
   }
+
+  return info;
 }
 
