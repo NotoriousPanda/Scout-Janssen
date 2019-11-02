@@ -2,7 +2,7 @@
 <html>
 	<body>
 		<?php
-
+file_put_contents("log.txt", "got to jump level");
 			function sanitize($data) {
 			  /*$data = trim($data);
 			  $data = stripslashes($data);
