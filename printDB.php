@@ -8,7 +8,8 @@
 			}
 			$query = "SELECT * FROM ?";
 			$statement = $database->prepare($query);
-			$statement->bind_param("s", "reports");
+			echo($database->$error);
+			/*$statement->bind_param("s", "reports");
 			echo($query);
 			try {
 				$statement->execute();
@@ -18,7 +19,7 @@
 			} catch (Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
-			echo(gettype($result));
+			echo(gettype($result));*/
 		?>
 	</body>
 </html>
