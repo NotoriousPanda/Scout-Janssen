@@ -1,5 +1,4 @@
 let event_key = "2019gagr";
-event_key = "2019gal";
 let teams = [];
 let teamData = ""
 async function go() {
