@@ -9,7 +9,7 @@
 			if ($_GET["table"] === "reports" || $_GET["table"] === "matches" || $_GET["table"] === "eventteams" || $_GET["table"] == "teams") {
 				$query = "SELECT * FROM " . $_GET["table"] . ";";
 				$result = $database->query($query);
-				$result = $result->fetch_all();
+				$result = $result->fetch_aall(MYSQLI_ASSOC);
 				echo(json_encode($result));
 			}
 		?>
