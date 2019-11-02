@@ -122,4 +122,13 @@
 else{
   timer()
 }*/
-setInterval(function(){for(var i = 0; i < document.getElementsByClassName("timerbold").length; i++){document.getElementsByClassName("timerbold")[i].value = document.getElementById("timer" + i).innerText}}, 100);
+setInterval(function(){for(var i = 0; i < 5; i++){document.getElementById("timer" + i).value = document.getElementById("timer" + i).innerText; document.getElementById("tiempo" + i).innerText = document.getElementById("timer" + i).innerText;}}, 100);
+
+function fixTheStuff(){
+  console.log("hi");
+  for(var i = 0; i < 5; i++){
+    if(document.getElementById("timer" + i).value == ""){
+      document.getElementById("timer" + i).value = "0.0";
+    }
+  }
+}

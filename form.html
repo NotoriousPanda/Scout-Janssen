@@ -12,7 +12,7 @@
       <a href="form.html" class="ne">Form</a>
       <a href="index.html" class="ne">Main Page</a>
   </div>
-  <form name="form" action="saveReport.php" onsubmit="" method="post" id="report">
+  <form name="form" action="saveReport.php" onsubmit="fixTheStuff()" method="post" id="report">
   <div class="timer darkgrey">
     <div class="table-wrapper" position="center">
         <table class="fl-table">
@@ -27,11 +27,11 @@
             </thead>
             <tbody>
             <tr>
-                <td id=timer0><input type="hidden" name="timeOnDefense" class="timerbold" value="0.0">0.00</input></td>
-                <td id=timer4><input type="hidden" name="timeBroke" class="timerbold" value="0.0">0.00</input></td>
-                <td id=timer1><input type="hidden" name="timeOnBot1" class="timerbold" value="0.0">0.00</input></td>
-                <td id=timer2><input type="hidden" name="timeOnBot2" class="timerbold" value="0.0">0.00</input></td>
-                <td id=timer3><input type="hidden" name="timeOnBot3" class="timerbold" value="0.0">0.00</input></td>
+                <td><span id="tiempo0"></span><input type="hidden" name="timeOnDefense" class="timerbold" id="timer0" value="0.0">0</input></td>
+                <td><span id="tiempo4"></span><input type="hidden" name="timeBroke" class="timerbold" id="timer4" value="0.0">0</input></td>
+                <td><span id="tiempo1"></span><input type="hidden" name="timeOnBot1" class="timerbold" id="timer1" value="0.0">0</input></td>
+                <td><span id="tiempo2"></span><input type="hidden" name="timeOnBot2" class="timerbold" id="timer2" value="0.0">0</input></td>
+                <td><span id="tiempo3"></span><input type="hidden" name="timeOnBot3" class="timerbold" id="timer3" value="0.0">0</input></td>
             </tr>
             <tbody>
         </table>
