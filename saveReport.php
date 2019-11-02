@@ -10,30 +10,47 @@
 			  return $data;
 			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
+			echo("Got to jumpLevel");
 			$HA = sanitize($_POST["HA"]);
+			echo("Got to HA");
 			$HAM = sanitaize($_POST["HAM"]);
+			echo("Got to HAM");
 			$CA = sanitize($_POST["CA"]);
+			echo("Got to CA");
 			$CAM = sanitaize($_POST["CAM"]);
+			echo("Got to CAM");
 			$HT = sanitize($_POST["HT"]);
+			echo("Got to HT");
 			$HTM = sanitaize($_POST["HTM"]);
+			echo("Got to HTM");
 			$CT = sanitize($_POST["CT"]);
+			echo("Got to CT");
 			$CTM = sanitaize($_POST["CTM"]);
+			echo("Got to CTM");
 			if (isset($_POST["highCargo"])) {
 				$highCargo = "true";
 			} else {
 				$highCargo = "false";
 			}
+			echo("Got to highCargo");
 			if (isset($_POST["highHatch"])) {
 				$highHatch = "true";
 			} else {
 				$highHatch = "false";
 			}
+			echo("Got to highHatch");
 			$timeOnDefense = sanitize($_POST["timeOnDefense"]);
+			echo("Got to timeOnDefense");
 			$timeOnBot1 = sanitize($_POST["timeOnBot1"]);
+			echo("Got to timeOnBot1");
 			$timeOnBot2 = sanitize($_POST["timeOnBot2"]);
+			echo("Got to timeOnBot2");
 			$timeOnBot3 = sanitize($_POST["timeOnBot3"]);
+			echo("Got to timeOnBot3");
 			$climbLevel = sanitize($_POST["climbLevel"]);
+			echo("Got to climbLevel");
 			$timeBroke = sanitize($_POST["timeBroke"]);
+			echo("Got to timeBroke");
 			$climbAssistCount = sanitize($_POST["climbAssistCount"]);
 			if (isset($_POST["mechanicalIssues"])) {
 				$mechanicalIssues = "true";
