@@ -10,7 +10,7 @@
 				$query = "SELECT * FROM " . $_GET["table"] . ";";
 				$result = $database->query($query);
 				$result = $result->fetch_all();
-				echo(gettype($result[0]));
+				echo(gettype($result[0][0]));
 			}
 		?>
 	</body>
