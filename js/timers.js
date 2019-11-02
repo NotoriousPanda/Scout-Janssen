@@ -8,13 +8,18 @@
     R: 82
     T: 84
     */
-    if(document.activeElement.tagName != "INPUT") doTheTimerStuff(e.which);
-  }
-  function resizeIframe(obj) {
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    if(document.activeElement.tagName != "INPUT"){
+
+      doTheTimerStuff(e.which);
+      shortcut(e.which);
+    }
   }
   onkeyup = function(e){
     if(document.activeElement.tagName != "INPUT") doTheOtherTimerStuff(e.which);
+  }
+
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
   }
 
   //Perfectly ordered variables

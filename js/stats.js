@@ -1,12 +1,12 @@
 
 //Takes one bot's match
-function calcBotUnreliant(info){
+function calcBotUnreliantMatch(info){
 
   info.totalHatches = info["HA"] + info["HT"];
   info.totalCargo = info["CA"] + info["CT"];
   info.totalHatchPoints = info.totalHatches * 2;
   info.totalCargoPoints = info.totalCargo * 3;
-  info.totalCyclePoints = (info["hatchTeleop"] * 2) + (info["cargoTeleop"]);
+  info.totalCyclePoints = (info["HT"] * 2) + (info["CT"]);
   info.totalAutoPoints = (info["jumpLevel"] * 3) + (info["HA"] * 2) + (info["CA"] * 3);
   info.climbPoints;
   switch(info["climbLevel"]){
@@ -58,7 +58,6 @@ function average(variables, s){
 
 //Takes one bot's all matches as info
 function getAllAverageDataOnBot(info){
-  //var bot = {};
   var keys = Object.keys(info);
   var subKeys = Object.keys(info[keys[0]]);
   for(var i = 0; i < Object.entries(info[keys[0]]).length; i++){
@@ -66,9 +65,22 @@ function getAllAverageDataOnBot(info){
     for(var j = 0; j < Object.entries(info).length; j++){
       variables[j] = info[keys[i]][subKeys[j]];
     }
+    info[keys.length] = [];
     info[keys.length][subKeys[i] + "Average"] = average(variables, "?");
   }
 
   return info;
 }
 
+//Takes one bot's match
+function calcBotReliantMatch(info){
+
+}
+
+async function getReports(){
+  return (await fetch("http://71.204.66.21/printDB.php/?table=reports")).json();
+}
+
+async function run(){
+  var reports = getReports();
+}
