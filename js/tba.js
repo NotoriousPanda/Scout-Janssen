@@ -30,6 +30,12 @@ async function go() {
     })
     createRow("Teams");
     createHead("Teams:", "Teams");
+    createHead("Qualifier Ranking:", "Teams");
+    createHead("Match Number:", "Teams");
+    createHead("Defense time:", "Teams");
+    createHead("Max climb:", "Teams");
+    createHead("Cargo : Hatches", "Teams");
+    createHead("Penalties: ", "Teams");
     //createRow("teams");
   });
 
@@ -41,7 +47,7 @@ async function go() {
         let data = teamData["frc" + teams[i]]
         console.log()
         createColumn("Qualifier Ranking: " + data.qual.ranking.rank, ("team" + teams[i]));
-        createBreak("team" + teams[i])
+        createColumn("Matches Played: " + data.qual.ranking.matches_played, ("team" + teams[i]));
       }
     });
   });
@@ -61,10 +67,6 @@ async function go() {
   function createHead(data, row, id=""){
     let th = document.createElement("th");
     th.appendChild(document.createTextNode(data));
-    document.getElementById(row).appendChild(th);
-  }
-  function createBreak(row){
-    let th = document.createElement("br");
     document.getElementById(row).appendChild(th);
   }
 }
