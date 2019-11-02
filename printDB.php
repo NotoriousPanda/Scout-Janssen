@@ -19,3 +19,6 @@
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
 			}
 			echo(gettype($result);
+		?>
+	</body>
+</html>
