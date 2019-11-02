@@ -36,7 +36,7 @@ function doTheTimerStuff(keyCode){
   timeInterval = 250;
   timeIncrements = timeInterval/1000;
   switch(keyCode){
-    case 81:
+    case 49:
       if(timer0Loop != undefined){
         clearInterval(timer0Loop);
         timer0Loop = undefined;
@@ -51,7 +51,7 @@ function doTheTimerStuff(keyCode){
          }, timeInterval);
       }
       break;
-    case 87:
+    case 51:
       timer1Div = document.getElementById("timer1");
       if(timer1Loop == undefined) timer1Loop = setInterval(function(){
         timerFor1 = timerFor1 + timeIncrements;
@@ -60,7 +60,7 @@ function doTheTimerStuff(keyCode){
 
       }, timeInterval);
       break;
-    case 69:
+    case 52:
       timer2Div = document.getElementById("timer2");
       if(timer2Loop == undefined) timer2Loop = setInterval(function(){
         timerFor2 = timerFor2 + timeIncrements;
@@ -68,14 +68,14 @@ function doTheTimerStuff(keyCode){
         timeChange();
       }, timeInterval);
       break;
-    case 82:
+    case 53:
       timer3Div = document.getElementById("timer3");
       if(timer3Loop == undefined) timer3Loop = setInterval(function(){
         timerFor3 = timerFor3 + timeIncrements;
         timer3Div.innerHTML = (timerFor3 / 1).toFixed(2);
       }, timeInterval);
       break;
-    case 84:
+    case 50:
       if(timer4Loop != undefined){
         clearInterval(timer4Loop);
         timer4Loop = undefined;
@@ -94,15 +94,15 @@ function doTheTimerStuff(keyCode){
 
 function doTheOtherTimerStuff(keyCode){
   switch(keyCode){
-    case 87:
+    case 51:
       clearInterval(timer1Loop);
       timer1Loop = undefined;
       break;
-    case 69:
+    case 52:
       clearInterval(timer2Loop);
       timer2Loop = undefined;
       break;
-    case 82:
+    case 53:
       clearInterval(timer3Loop);
       timer3Loop = undefined;
       break;
