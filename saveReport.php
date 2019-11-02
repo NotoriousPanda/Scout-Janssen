@@ -10,7 +10,7 @@
 			  return $data;
 			}
 			$jumpLevel = sanitize($_POST["jumpLevel"]);
-			//file_put_contents("Got to jumpLevel", 3, "log.txt");
+			file_put_contents("log.txt", "got to jump level");
 			$HA = sanitize($_POST["HA"]);
 			//file_put_contents("Got to HA", 3, "log.txt");
 			$HAM = sanitize($_POST["HAM"]);
