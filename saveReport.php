@@ -82,7 +82,7 @@
 
 			$query = "INSERT INTO reports (jumpLevel, HA, CA, HT, CT, highCargo, highHatch, timeOnDefense, timeOnBot1, timeOnBot2, timeOnBot3, climbLevel, timeBroke, mechanicalIssues, connectionIssues, position, teamNumber, matchNumber, setNumber, compLevel, notes, offensivePenalties, defensivePenalties, HAM, CAM, HTM, CTM, climbAssistCount)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-			$statement = $conn->prepare($query);
+			$statement = $databse->prepare($query);
 			$statement->bind_param("iiiiissddddidssiiiissiiiiiii", $jumpLevel, $HA, $CA, $HT, $CT, $highCargo, $highHatch, $timeOnDefense, $timeOnBot1, $timeOnBot2, $timeOnBot3, $climbLevel, $timeBroke, $mechanicalIssues, $connectionIssues, $position, $teamNumber, $matchNumber, $setNumber, $compLevel, $notes, $offensivePenalties, $defensivePenalties, $HAM, $CAM, $HTM, $CTM, $climbAssistCount);
 			echo($query);
 			try {
