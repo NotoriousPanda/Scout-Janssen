@@ -78,7 +78,7 @@ file_put_contents("log.txt", "got to jump level");
 			$password = $_ENV["databasePassword"];
 
 			$dbconn = new mysqli($servername, $username, $password, "scout_janssen");
-			echo($password);
+			echo("password is " . $password);
 
 			if ($dbconn->connect_error) {
 				die("Connection to database failed" . $conn->connect_error);
