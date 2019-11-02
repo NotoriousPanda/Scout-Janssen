@@ -1,4 +1,4 @@
- +
+ 
 		<?php
 			$password = getenv("DBPASS");
 			$database = new mysqli("localhost", "pi", $password, "scout_janssen");
