@@ -6,6 +6,7 @@ var select = "qm"
 var match = 0;
 let matchData;
 var team = 4026;
+let alliances = []
 async function go() {
   //headers
   const headers = new Headers();
@@ -45,15 +46,21 @@ function checkExist(val) {
                 match = this.value;
                 if (val.match_number == match) {
                     matchData = val;
-                    var alliances = matchData.alliances.red.team_keys.concat(matchData.alliances.blue.team_keys); //Concat. Blue then red.
+                    alliances = matchData.alliances.red.team_keys.concat(matchData.alliances.blue.team_keys); //Concat. Blue then red.
                     for (i = 0; i < alliances.length; i++) {
                         alliances[i] = alliances[i].replace("frc", "");
-                        if (alliances[i] == team) {
-                            var botpos = document.getElementById("botpos");
-                            botpos.value = i + 1;
-                            //botpos.setAttribute("value", i + 1);
+                    }
+                    for (w = 0; w < alliances.length; w++) {
+                        e = document.getElementById("team" + (w + 1));
+                        e.value = alliances[w];
+                        if (!e.hasChildNodes()) {
+                            e.appendChild(document.createTextNode(alliances[w]));
                         }
                     }
+                    x = document.getElementById("teamNumber");
+                    team = x.options[x.selectedIndex].value;
+                    console.log(team)
+                    changeBotPos()
                 }
             });
         }
@@ -67,6 +74,7 @@ function checkExist(val) {
                 if (team != this.value) {
                 }
                 team = this.value;
+                changeBotPos()
             });
         }
     }, 100);
@@ -79,13 +87,22 @@ function checkMatchNumber() {
     if (document.getElementById("matchNumber") = )
 }*/
 
-
+function changeBotPos() {
+    for (i = 0; i < alliances.length; i++) {
+        //console.log(team)
+        if (alliances[i] == team) {
+            var botpos = document.getElementById("botpos");
+            botpos.value = i + 1;
+            //botpos.setAttribute("value", i + 1);
+        }
+    }
+}
 
 
 function checkSelect(value, select) {
     var counter = 0;
     if ((value[i].comp_level != select)) {
-        value.splice(i, 1);
+        value.splice(i, 1); //splicing out data that isnt select
         if (value[i].comp_level != select) {
             checkSelect(value, select);
         }

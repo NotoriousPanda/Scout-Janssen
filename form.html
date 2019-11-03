@@ -42,12 +42,17 @@
   <div class="data column darkgrey">
     <h1>Before match:</h1>
     <div id="climb">
-      <h3>Starting climb:
-      <input type="text" name="jumpLevel" value="0"></h3>
-      <h3>Team number:
-      <input type="text" name="teamNumber" value="4026"></h3>
-      <h3>Match number:
+	<h3>Match number:
       <input type="text" name="matchNumber" value="0"></h3>
+      <h3>Team number:
+		  <select name="teamNumber" form="report" id="teamNumber">
+		  	<option value="" selected="selected" id="team1"></option>
+		  	<option value="" id="team2"></option>
+		  	<option value="" id="team3"></option>
+		  	<option value="" id="team4"></option>
+		  	<option value="" id="team5"></option>
+		  	<option value="" id="team6"></option>
+		  </select>
       <h3>Type of match:
       <select name="compLevel" form="report">
         <option value="qm" selected="selected">Qualifiying match</option>
@@ -58,8 +63,10 @@
       </select>
       <h3>Bot position:
       <input type="text" name="position" id="botpos"></h3>
-      <h3>Set number (If qualifying match, enter 1. This is the set in finals/semis.):
+      <h3>Set number (If qualifying match, keep 0. This is the set in finals/semis.):
       <input type="text" name="setNumber" value="0"></h3>
+	<h3>Starting climb:
+      <input type="text" name="jumpLevel" value="0"></h3>
     </div>
   </div>
   <div class="data column gray">
