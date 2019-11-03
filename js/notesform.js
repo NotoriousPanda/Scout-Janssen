@@ -5,6 +5,7 @@ var packet = [];
 var select = "qm"
 var match = 0;
 let matchData;
+var team = 4026;
 async function go() {
   //headers
   const headers = new Headers();
@@ -25,27 +26,51 @@ async function go() {
             value = (checkSelect(value, select));
             value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
             //Sorts out values not equal to type of match ^
-            if (value[i].match_number == match) {
-                matchData = value[i];
-            }
+        }
+        for (i = 0; i < value.length; i++) {
+            checkExist(value[i]); //function that makes matchdata exist
             //document.getElementById("botpos").value = 
-      }
+        }
     })
   });
 }
 go();
-matchNumberElFunc()
-async function matchNumberElFunc() {
-    let matchNumberEl = document.getElementsByName("matchNumber");
-    await console.log(matchNumberEl);
-    await console.log(matchNumberEl[0]);
-    matchNumberEl[0].addEventListener('input', function () {
-        console.log(this.value)
-        match = this.value;
-    });
+function checkExist(val) {
+    setInterval(function () {
+        if (document.getElementsByName("matchNumber").length) {
+            clearInterval(checkExist);
+            document.getElementsByName("matchNumber")[0].addEventListener('input', function () {
+                if (match != this.value) {
+                }
+                match = this.value;
+                if (val.match_number == match) {
+                    matchData = val;
+                    var alliances = matchData.alliances.red.team_keys.concat(matchData.alliances.blue.team_keys); //Concat. Blue then red.
+                    for (i = 0; i < alliances.length; i++) {
+                        alliances[i] = alliances[i].replace("frc", "");
+                        if (alliances[i] == team) {
+                            var botpos = document.getElementById("botpos");
+                            botpos.value = i + 1;
+                            //botpos.setAttribute("value", i + 1);
+                        }
+                    }
+                }
+            });
+        }
+    }, 100);
+
+
+    setInterval(function () {
+        if (document.getElementsByName("teamNumber").length) {
+            clearInterval(checkExist);
+            document.getElementsByName("teamNumber")[0].addEventListener('input', function () {
+                if (team != this.value) {
+                }
+                team = this.value;
+            });
+        }
+    }, 100);
 }
-
-
 /*setInterval(function () {
     checkMatchNumber();
 }, 100)
@@ -53,6 +78,9 @@ async function matchNumberElFunc() {
 function checkMatchNumber() {
     if (document.getElementById("matchNumber") = )
 }*/
+
+
+
 
 function checkSelect(value, select) {
     var counter = 0;
