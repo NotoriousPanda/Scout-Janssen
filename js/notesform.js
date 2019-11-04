@@ -2,7 +2,7 @@ let event_key = "2019gagr";
 let team_key = "";
 let teamData = ""
 var packet = [];
-var select = "qm"
+var select = "qf"
 var match = 0;
 let matchData;
 var team = 4026;
@@ -23,11 +23,10 @@ async function go() {
   }
   rqAPI('https://www.thebluealliance.com/api/v3/event/' + event_key + "/matches", function() {
     response.json().then(function(value){
-        for (i = 0; i < value.length; i++){
-            value = (checkSelect(value, select));
-            value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
-            //Sorts out values not equal to type of match ^
-        }
+        value = (checkSelect(value, select));
+        console.log(value)
+        value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
+            //Sorts out values not equal to type of match then sorts by number^
         for (i = 0; i < value.length; i++) {
             checkExist(value[i]); //function that makes matchdata exist
             //document.getElementById("botpos").value = 
@@ -36,6 +35,7 @@ async function go() {
   });
 }
 go();
+
 function checkExist(val) {
     setInterval(function () {
         if (document.getElementsByName("matchNumber").length) {
@@ -56,10 +56,10 @@ function checkExist(val) {
                         if (!e.hasChildNodes()) {
                             e.appendChild(document.createTextNode(alliances[w]));
                         }
+                        e.replaceChild(document.createTextNode(alliances[w]), e.childNodes[0]);
                     }
                     x = document.getElementById("teamNumber");
                     team = x.options[x.selectedIndex].value;
-                    console.log(team)
                     changeBotPos()
                 }
             });
@@ -79,6 +79,18 @@ function checkExist(val) {
         }
     }, 100);
 }
+function checkTypeOfMatch() {
+    setInterval(function () {
+        if (document.getElementsByName("compLevel").length) {
+            clearInterval(checkTypeOfMatch);
+            document.getElementsByName("compLevel")[0].addEventListener('input', function () {
+                select = this.value;
+                changeBotPos()
+            });
+        }
+    }, 100);
+}
+
 /*setInterval(function () {
     checkMatchNumber();
 }, 100)
@@ -88,35 +100,62 @@ function checkMatchNumber() {
 }*/
 
 function changeBotPos() {
+    console.log(alliances[1])
     for (i = 0; i < alliances.length; i++) {
         //console.log(team)
         if (alliances[i] == team) {
             var botpos = document.getElementById("botpos");
             botpos.value = i + 1;
+            console.log(alliances)
             //botpos.setAttribute("value", i + 1);
         }
     }
 }
+//select = document.getElementsByName("compLevel").options[document.getElementsByName("compLevel").selectedIndex].value;
 
-
+/*function checkSelect(value, select) {
+    for (h = 0; h < value.length; h++) {
+        var counter = 0;
+        console.log(value)
+        if ((value[h].comp_level != select)) {
+            value.splice(h, 1); //splicing out data that isnt select
+            if (value[h].comp_level != select) {
+                checkSelect(value, select);
+            }
+        }
+        else {
+        }
+        for (x = 0; x < value.length; x++) {
+            if (value[x].comp_level != select) {
+                break;
+            }
+            else {
+                counter++;
+            }
+            if (counter == value.length) { //check if # of values is equal to # of values that are of type select
+                return value;
+            }
+        }
+    }
+}*/
 function checkSelect(value, select) {
     var counter = 0;
-    if ((value[i].comp_level != select)) {
-        value.splice(i, 1); //splicing out data that isnt select
-        if (value[i].comp_level != select) {
+    for (i = 0; i < value.length; i++) {
+        if (select == value[i].comp_level) {
+            counter++;
+        }
+        else {
+            value.splice(i, 1);
             checkSelect(value, select);
         }
     }
-    for (x = 0; x < value.length; i++) {
-        if (value[x].comp_level != select) {
-            break
-        }
-        else {
-            counter++;
-        }
-        if (counter == value.length) {
-            return value;
-        }
+    if (counter == value.length) {
+        //console.log(value)
+        return value;
     }
 
+    else {
+        checkSelect(value, select);
+        changeBotPos()
+    }
 }
