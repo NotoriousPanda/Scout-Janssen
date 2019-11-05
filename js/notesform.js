@@ -28,6 +28,7 @@ async function go() {
   }
     await rqAPI('https://www.thebluealliance.com/api/v3/event/' + event_key + '/matches', function() {
         response.json().then(function (value) {
+            var counter = 0;
             value = (checkSelect(value, select));
             value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
             globalVal = value;
@@ -36,6 +37,8 @@ async function go() {
                 for (i = 0; i < value.length; i++) {
                     changeForm(value[i]); //function that makes matchdata exist
                 }
+                counter++;
+                console.log(alliances.length)
             }, 100);
     })
   });
@@ -74,7 +77,6 @@ function checkSet() {
 
 function checkTypeOfMatch() {
     if (document.getElementsByName("compLevel").length) {
-        clearInterval(checkTypeOfMatch);
         document.getElementsByName("compLevel")[0].addEventListener('input', function () {
             select = this.value;
             console.log(select)
