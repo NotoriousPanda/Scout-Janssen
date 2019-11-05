@@ -1,16 +1,16 @@
-let timerCount = 0;
-
 let event_key = "2019gagr";
 let team_key = "";
 let teamData = ""
-var packet = [];
-var select = "qm"
+let select = "qm"
 var match = 0;
+let prevMatch = 0;
 let matchData;
-var team = 4026;
-var set = 1;
+let team = 4026;
+let set = 1;
 let alliances = []
 let globalVal = []
+let change = false;
+let ogMatchData;
 //Whenever typeOfMatch changes, a new array needs to be created and sorted with the setinterval using its values instead
 async function go() {
   //headers
@@ -28,93 +28,106 @@ async function go() {
   }
     await rqAPI('https://www.thebluealliance.com/api/v3/event/' + event_key + '/matches', function() {
         response.json().then(function (value) {
-            var counter = 0;
-            value = (checkSelect(value, select));
-            value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
-            globalVal = value;
-                //Sorts out values not equal to type of match then sorts by number^
-            setInterval(function () {
-                for (i = 0; i < value.length; i++) {
-                    changeForm(value[i]); //function that makes matchdata exist
-                }
-                counter++;
-                console.log(alliances.length)
-            }, 100);
+            ogMatchData = value;
+            startCheck()
+            sortData(value);
+            //Sorts out values not equal to type of match then sorts by number^
     })
   });
 }
 go();
 
-function checkMatch() {
-    if (document.getElementsByName("matchNumber").length);
-    document.getElementsByName("matchNumber")[0].addEventListener('input', function () {
-        if (match < globalVal.length) {
-            match = this.value;
+function sortData(val) {
+    value = (checkSelect(val, select));
+    value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
+    globalVal = value;
+    if (globalVal.length == 0) {
+        console.log("No data in this match")
+    }
+}
+
+function startCheck() {
+    var m = setInterval(function () {
+        if (document.getElementsByName("matchNumber").length) {
+            document.getElementsByName("matchNumber")[0].addEventListener('input', function () {
+                if (match < globalVal.length) {
+                    prevMatch = match;
+                    match = this.value;
+                    changeDataLoop();
+                }
+                else {
+
+                }
+            });
+            clearInterval(m);
         }
-        else {
-            
+    }, 100);
+    var t = setInterval(function () {
+        if (document.getElementsByName("teamNumber").length) {
+            document.getElementsByName("teamNumber")[0].addEventListener('input', function () {
+                team = this.value;
+                changeDataLoop()
+            });
+            clearInterval(t);
         }
-    });
-   
+    }, 100);
+    var s = setInterval(function () {
+        if (document.getElementsByName("setNumber").length) {
+            document.getElementsByName("setNumber")[0].addEventListener('input', function () {
+                set = this.value;
+                changeDataLoop()
+            });
+            clearInterval(s);
+        }
+    }, 100);
+    var cl = setInterval(function () {
+        if (document.getElementsByName("compLevel").length) {
+            document.getElementsByName("compLevel")[0].addEventListener('input', function () {
+                select = this.value;
+                sortData(ogMatchData);
+                changeDataLoop()
+            });
+            clearInterval(cl);
+        }
+    }, 100);
 }
 
-
-function checkTeam() {
-    if (document.getElementsByName("teamNumber").length) {
-        document.getElementsByName("teamNumber")[0].addEventListener('input', function () {
-            team = this.value;
-        });
+function changeDataLoop() {
+    for (i = 0; i < globalVal.length; i++) {
+        changeForm(globalVal[i]); //function that makes matchdata exist
     }
 }
 
-function checkSet() {
-    if (document.getElementsByName("setNumber").length) {
-        document.getElementsByName("setNumber")[0].addEventListener('input', function () {
-            set = this.value;
-        });
-    }
-}
-
-function checkTypeOfMatch() {
-    if (document.getElementsByName("compLevel").length) {
-        document.getElementsByName("compLevel")[0].addEventListener('input', function () {
-            select = this.value;
-            console.log(select)
-        });
-    }
-}
 
 function changeForm(val) {
-    checkMatch();
-    checkTeam();
-    checkSet();
-    checkTypeOfMatch();
+    console.log("change form called")
     if (val.match_number == match && val.set_number == set) {
-        changeBotPos()
         matchData = val;
         alliances = matchData.alliances.red.team_keys.concat(matchData.alliances.blue.team_keys); //Concat. Blue then red.
-        for (i = 0; i < alliances.length; i++) {
+        for (var i = 0; i < alliances.length; i++) {
             alliances[i] = alliances[i].replace("frc", "");
         }
-        for (w = 0; w < alliances.length; w++) {
-            e = document.getElementById("team" + (w + 1));
-            e.value = alliances[w];
+        for (var i = 0; i < alliances.length; i++) {
+            e = document.getElementById("team" + (i + 1));
+            e.value = alliances[i];
             if (!e.hasChildNodes()) {
-                e.appendChild(document.createTextNode(alliances[w]));
+                e.appendChild(document.createTextNode(alliances[i]));
             }
-            e.replaceChild(document.createTextNode(alliances[w]), e.childNodes[0]);
+            e.replaceChild(document.createTextNode(alliances[i]), e.childNodes[0]);
         }
+        
         x = document.getElementById("teamNumber");
         y = document.getElementById("setNumber");
         team = x.options[x.selectedIndex].value;
         set = y.value;
-        changeBotPos()
+        changeBotPos();
     }
 }
 
 
 function changeBotPos() {
-    for (i = 0; i < alliances.length; i++) {
+    console.log("Change bot called")
+    for (var i = 0; i < alliances.length; i++) {
         if (alliances[i] == team) {
             var botpos = document.getElementById("botpos");
             botpos.value = i + 1;
@@ -124,8 +137,9 @@ function changeBotPos() {
 
 
 function checkSelect(value, select) {
+    console.log("Check select called")
     var newArr = []
-    for (i = 0; i < value.length; i++) {
+    for (var i = 0; i < value.length; i++) {
         if (select == value[i].comp_level) {
             newArr.push(value[i])
         }
