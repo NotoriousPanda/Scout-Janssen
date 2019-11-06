@@ -2,7 +2,7 @@ let event_key = "2019gagr";
 let team_key = "";
 let teamData = ""
 let select = "qm"
-var match = 0;
+let match = 0;
 let prevMatch = 0;
 let matchData;
 let team = 4026;
@@ -11,6 +11,11 @@ let alliances = []
 let globalVal = []
 let change = false;
 let ogMatchData;
+
+let dataWarning = new Warning("WARNING: No data in this type of match", "data");
+let matchWarning = new Warning("WARNING: Match exceeds amount of matches", "match")
+let setWarning = new Warning("WARNING: Set exceeds amount of sets", "set")
+
 //Whenever typeOfMatch changes, a new array needs to be created and sorted with the setinterval using its values instead
 async function go() {
   //headers
@@ -41,7 +46,6 @@ function sortData(val) {
     value = (checkSelect(val, select));
     value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
     globalVal = value;
-    dataWarning = new Warning("WARNING: No data in this type of match")
     if (globalVal.length == 0) {
         console.log("No data in this match")
         dataWarning.create();
@@ -51,20 +55,24 @@ function sortData(val) {
     }
 }
 
-function Warning(text) {
+function Warning(text, id) {
     this.text = text;
+    this.pid = "warningP" + id
     this.element = document.createElement("p");
+    this.element.setAttribute("id", this.pid);
     this.node = document.createTextNode(this.text);
-    this.parent = document.getElementById("warnings");
 
     this.create = function () {
+    	console.log(this.element)
         this.element.appendChild(this.node);
-        this.parent.appendChild(this.element);
+        document.getElementById("warnings").appendChild(this.element);
         this.created = true;
+        id++;
     }
 
     this.remove = function () {
-        this.parent.removeChild(this.node);
+    	console.log(this.element)
+        document.getElementById("warnings").removeChild(this.element)
     }
 
 
@@ -75,12 +83,16 @@ function startCheck() {
         if (document.getElementsByName("matchNumber").length) {
             document.getElementsByName("matchNumber")[0].addEventListener('input', function () {
                 if (match < globalVal.length) {
+                	console.log("match does not exceed max")
+                	if(document.getElementById(matchWarning.pid)){
+                		matchWarning.remove()
+                	}
                     prevMatch = match;
                     match = this.value;
                     changeDataLoop();
                 }
                 else {
-                    warning("WARNING: Match does not exist")
+                    matchWarning.create();
                 }
             });
             clearInterval(m);
