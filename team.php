@@ -17,7 +17,6 @@ if ($database->connect_error) {
 				die("Connection to database failed" . $conn->connect_error);
 }
 $query = "SELECT * from reports";
-echo $password;
 ?>
 <body>
 	<div>
