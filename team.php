@@ -16,7 +16,11 @@ $database = new mysqli("localhost", "pi", $password, "scout_janssen");
 if ($database->connect_error) {
 				die("Connection to database failed" . $conn->connect_error);
 }
-$query = "SELECT * from reports";
+
+$sql = $conn->prepare("SELECT * FROM reports");
+$result = $conn->query($sql);
+echo($result);
+
 ?>
 <body>
 	<div>
