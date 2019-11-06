@@ -17,8 +17,8 @@ if ($database->connect_error) {
 				die("Connection to database failed" . $conn->connect_error);
 }
 
-$sql = $conn->prepare("SELECT * FROM reports");
-$result = $conn->query($sql);
+$sql = "SELECT * FROM reports";
+$result = $database->query($sql);
 echo($result);
 
 ?>
