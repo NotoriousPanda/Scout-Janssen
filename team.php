@@ -73,9 +73,9 @@ echo "</table>";
         echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
     }
 } else {
-    echo "0 results";*/
+    echo "0 results";
 }
-$database->close();
+$database->close();*/
 
 ?>
 <body>
