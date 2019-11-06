@@ -41,9 +41,33 @@ function sortData(val) {
     value = (checkSelect(val, select));
     value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
     globalVal = value;
+    dataWarning = new Warning("WARNING: No data in this type of match")
     if (globalVal.length == 0) {
         console.log("No data in this match")
+        dataWarning.create();
     }
+    else {
+        dataWarning.remove();
+    }
+}
+
+function Warning(text) {
+    this.text = text;
+    this.element = document.createElement("p");
+    this.node = document.createTextNode(this.text);
+    this.parent = document.getElementById("warnings");
+
+    this.create = function () {
+        this.element.appendChild(this.node);
+        this.parent.appendChild(this.element);
+        this.created = true;
+    }
+
+    this.remove = function () {
+        this.parent.removeChild(this.node);
+    }
+
+
 }
 
 function startCheck() {
@@ -56,7 +80,7 @@ function startCheck() {
                     changeDataLoop();
                 }
                 else {
-
+                    warning("WARNING: Match does not exist")
                 }
             });
             clearInterval(m);
