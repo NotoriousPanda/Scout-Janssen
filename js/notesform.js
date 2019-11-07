@@ -11,7 +11,7 @@ let alliances = []
 let globalVal = []
 let change = false;
 let ogMatchData;
-
+let setCount = 1;
 let dataWarning = new Warning("WARNING: No data in this type of match", "data");
 let matchWarning = new Warning("WARNING: Match exceeds amount of matches", "match")
 let setWarning = new Warning("WARNING: Set exceeds amount of sets", "set")
@@ -34,6 +34,7 @@ async function go() {
     await rqAPI('https://www.thebluealliance.com/api/v3/event/' + event_key + '/matches', function() {
         response.json().then(function (value) {
             ogMatchData = value;
+            createWarningDiv()
             startCheck()
             sortData(value);
             //Sorts out values not equal to type of match then sorts by number^
@@ -46,13 +47,19 @@ function sortData(val) {
     value = (checkSelect(val, select));
     value.sort((a, b) => (a.match_number > b.match_number) ? 1 : -1);
     globalVal = value;
+    checkSets(globalVal);
     if (globalVal.length == 0) {
-        console.log("No data in this match")
         dataWarning.create();
     }
     else {
         dataWarning.remove();
     }
+}
+
+function createWarningDiv() {
+    var div = document.createElement("div");
+    div.setAttribute("id", "warnings");
+    document.getElementById("notes").appendChild(div);
 }
 
 function Warning(text, id) {
@@ -62,17 +69,20 @@ function Warning(text, id) {
     this.element.setAttribute("id", this.pid);
     this.node = document.createTextNode(this.text);
 
+
     this.create = function () {
-    	console.log(this.element)
         this.element.appendChild(this.node);
         document.getElementById("warnings").appendChild(this.element);
-        this.created = true;
+        this.active = true;
         id++;
     }
 
     this.remove = function () {
-    	console.log(this.element)
-        document.getElementById("warnings").removeChild(this.element)
+        var el = document.getElementById("warnings");
+        if (el.hasChildNodes()) {
+            el.removeChild(this.element)
+            this.active = false;
+        }
     }
 
 
@@ -82,8 +92,8 @@ function startCheck() {
     var m = setInterval(function () {
         if (document.getElementsByName("matchNumber").length) {
             document.getElementsByName("matchNumber")[0].addEventListener('input', function () {
-                if (match < globalVal.length) {
-                	console.log("match does not exceed max")
+                if (document.getElementsByName("matchNumber")[0].value < globalVal.length) {
+                    checkSets(globalVal);
                 	if(document.getElementById(matchWarning.pid)){
                 		matchWarning.remove()
                 	}
@@ -94,6 +104,7 @@ function startCheck() {
                 else {
                     matchWarning.create();
                 }
+                checkSetButLikeNotBecauseItsCalledWhenThingsChange()
             });
             clearInterval(m);
         }
@@ -112,6 +123,7 @@ function startCheck() {
             document.getElementsByName("setNumber")[0].addEventListener('input', function () {
                 set = this.value;
                 changeDataLoop()
+                checkSetButLikeNotBecauseItsCalledWhenThingsChange()
             });
             clearInterval(s);
         }
@@ -122,10 +134,25 @@ function startCheck() {
                 select = this.value;
                 sortData(ogMatchData);
                 changeDataLoop()
+                checkSetButLikeNotBecauseItsCalledWhenThingsChange()
+
             });
             clearInterval(cl);
         }
     }, 100);
+}
+
+function checkSetButLikeNotBecauseItsCalledWhenThingsChange() {
+    if (document.getElementsByName("setNumber")[0].value > setCount) {
+        setWarning.create();
+    }
+    else {
+        if (match < globalVal.length) {
+            if (setWarning.active) {
+                setWarning.remove();
+            }
+        }
+    }
 }
 
 function changeDataLoop() {
@@ -136,7 +163,6 @@ function changeDataLoop() {
 
 
 function changeForm(val) {
-    console.log("change form called")
     if (val.match_number == match && val.set_number == set) {
         matchData = val;
         alliances = matchData.alliances.red.team_keys.concat(matchData.alliances.blue.team_keys); //Concat. Blue then red.
@@ -162,7 +188,6 @@ function changeForm(val) {
 
 
 function changeBotPos() {
-    console.log("Change bot called")
     for (var i = 0; i < alliances.length; i++) {
         if (alliances[i] == team) {
             var botpos = document.getElementById("botpos");
@@ -173,7 +198,6 @@ function changeBotPos() {
 
 
 function checkSelect(value, select) {
-    console.log("Check select called")
     var newArr = []
     for (var i = 0; i < value.length; i++) {
         if (select == value[i].comp_level) {
@@ -181,6 +205,14 @@ function checkSelect(value, select) {
         }
         if (i === value.length - 1) {
             return newArr;
+        }
+    }
+}
+
+function checkSets(value) {
+    for (var i = 0; i < value.length; i++) {
+        if (value[i].match_number == match && value[i].set_number == set) {
+            setCount = value[i].set_number;
         }
     }
 }
