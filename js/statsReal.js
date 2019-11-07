@@ -34,7 +34,7 @@ function calcBotUnreliantMatch(info){
     var newReports = [];
     for(i in reports){
       if(i.matchNumber == matchNum){
-        newReports += i;
+        newReports.push(i);
       }
     }
   
