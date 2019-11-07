@@ -38,7 +38,7 @@ async function go() {
             startCheck()
             sortData(value);
             //Sorts out values not equal to type of match then sorts by number^
-    })
+        })
   });
 }
 go();
@@ -91,6 +91,7 @@ function Warning(text, id) {
 function startCheck() {
     var m = setInterval(function () {
         if (document.getElementsByName("matchNumber").length) {
+            matchTab();
             document.getElementsByName("matchNumber")[0].addEventListener('input', function () {
                 if (document.getElementsByName("matchNumber")[0].value < globalVal.length) {
                     checkSets(globalVal);
@@ -183,6 +184,7 @@ function changeForm(val) {
         team = x.options[x.selectedIndex].value;
         set = y.value;
         changeBotPos();
+        console.log(globalVal);
     }
 }
 
@@ -215,4 +217,23 @@ function checkSets(value) {
             setCount = value[i].set_number;
         }
     }
+}
+
+function matchTab() {
+    //TODO: Sort data
+    var matchState = "Not scouted";
+    var parent = document.getElementById("matchSelect");
+    for (i = 0; i < ogMatchData.length; i++) {
+        var element = document.createElement("a");
+        element.setAttribute("id", "match" + i);
+        element.setAttribute("href", "javascript:fillData(" + i + ")");
+        var node = document.createTextNode("Match " + ogMatchData[i].match_number + ": " + matchState);
+        element.appendChild(node);
+        var br = document.createElement("br");
+        parent.appendChild(element);
+        parent.appendChild(br);
+    }
+}
+function fillData(id) {
+    //TODO change forms with data
 }

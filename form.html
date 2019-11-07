@@ -43,6 +43,11 @@
 				</table>
 			</div>
 		</div>
+		<div class="column data vmenu" id="matchSelect">
+			<h3>Quickselect:</h3>
+		</div>
+
+
 		<div class="data column darkgrey">
 			<h1>Before match:</h1>
 			<div id="climb">
@@ -51,36 +56,38 @@
 					<input type="text" name="matchNumber" value="0">
 				</h3>
 				<h3>
-					Team number:
-					<select name="teamNumber" form="report" id="teamNumber">
-						<option value="" selected="selected" id="team1"></option>
-						<option value="" id="team2"></option>
-						<option value="" id="team3"></option>
-						<option value="" id="team4"></option>
-						<option value="" id="team5"></option>
-						<option value="" id="team6"></option>
-					</select>
-					<h3>
-						Type of match:
-						<select name="compLevel" form="report">
-							<option value="qm" selected="selected">Qualifiying match</option>
-							<option value="ef">Round of 16</option>
-							<option value="qf">Quarter finals</option>
-							<option value="sf">Semi finals</option>
-							<option value="f">Finals</option>
-						</select>
-						<h3>
-							Bot position:
-							<input type="text" name="position" id="botpos">
-						</h3>
-						<h3>
-							Set number (N/A in Qualifiers. Keep 1.):
-							<input type="text" name="setNumber" id="setNumber" value="1">
-						</h3>
-						<h3>
-							Starting climb:
-							<input type="text" name="jumpLevel" value="0">
-						</h3>
+				Team number:
+				</h3>
+				<select name="teamNumber" form="report" id="teamNumber">
+					<option value="" selected="selected" id="team1"></option>
+					<option value="" id="team2"></option>
+					<option value="" id="team3"></option>
+					<option value="" id="team4"></option>
+					<option value="" id="team5"></option>
+					<option value="" id="team6"></option>
+				</select>
+				<h3>
+				Type of match:
+				</h3>
+				<select name="compLevel" form="report">
+					<option value="qm" selected="selected">Qualifiying match</option>
+					<option value="ef">Round of 16</option>
+					<option value="qf">Quarter finals</option>
+					<option value="sf">Semi finals</option>
+					<option value="f">Finals</option>
+				</select>
+				<h3>
+					Bot position:
+					<input type="text" name="position" id="botpos">
+				</h3>
+				<h3>
+					Set number (N/A in Qualifiers. Keep 1.):
+					<input type="text" name="setNumber" id="setNumber" value="1">
+				</h3>
+				<h3>
+					Starting climb:
+					<input type="text" name="jumpLevel" value="0">
+				</h3>
 			</div>
 		</div>
 		<div class="data column gray">
@@ -127,7 +134,6 @@
 				</h3>
 			</div>
 		</div>
-		</div>
 		<div class="data column darkgrey">
 			<h1>Endgame:</h1>
 			<div id="climb">
@@ -139,7 +145,7 @@
 			<div id="climbassist">
 				<h3>
 					How many assisted:
-					<input type="text" name="climbAssistCount" value="0"
+					<input type="text" name="climbAssistCount" value="0" />
 				</h3>
 			</div>
 		</div>

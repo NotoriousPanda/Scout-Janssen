@@ -45,7 +45,7 @@ h3 {
 .row
 {
     display: table-row;
-    width: 100%; /*Optional*/
+    width: 20%; /*Optional*/
     table-layout: fixed; /*Optional*/
     border-spacing: 10px; /*Optional*/
 }
