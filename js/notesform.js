@@ -59,7 +59,7 @@ function sortData(val) {
 function createWarningDiv() {
     var div = document.createElement("div");
     div.setAttribute("id", "warnings");
-    document.getElementById("notes").appendChild(div);
+    document.getElementById("popup_frame").appendChild(div);
 }
 
 function Warning(text, id) {
