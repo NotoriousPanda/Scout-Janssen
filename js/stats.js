@@ -27,22 +27,6 @@ function calcBotUnreliantMatch(info){
   info.totalEndgamePoints = info.climbPoints + info.climbAssistPoints;
   info.totalOffensePoints = info.totalAutoPoints + info.totalCyclePoints + info.totalEndgamePoints;
 
-  info.defensePointsBotFour = info["botFour"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotOne"] - info["botFour"]["timeInable"]);
-  info.defensePointsBotFive = info["botFive"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotTwo"] - info["botFive"]["timeInable"]);
-  info.defensePointsBotSix = info["botSix"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotThree"] - info["botSix"]["timeInable"]);
-
-  info.totalDefensePoints = info.defensePointsBotFive + info.defensePointsBotFour + info.defensePointsBotSix;
-
-  info.netOffensePoints = info.totalOffensePoints - info.offensePenalties;
-
-  info.netDefensePoints = info.netDefensePoints - info.defensePenalties;
-
-  //TODO: duress + points given
-
-  info.totalContribution = info.totalOffensePoints + info.totalDefensePoints;
-
-  info.netContribution = info.netDefensePoints + info.netOffensePoints;
-
   return info;
 }
 
@@ -95,3 +79,23 @@ function getReportsOfOneBot(teamNum, reports){
 
   return rep;
 }
+
+function calcBotStuffReliantOnTeams(info){
+  info.defensePointsBotFour = info["botFour"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotOne"] - info["botFour"]["timeInable"]);
+  info.defensePointsBotFive = info["botFive"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotTwo"] - info["botFive"]["timeInable"]);
+  info.defensePointsBotSix = info["botSix"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotThree"] - info["botSix"]["timeInable"]);
+
+  info.totalDefensePoints = info.defensePointsBotFive + info.defensePointsBotFour + info.defensePointsBotSix;
+
+  info.netOffensePoints = info.totalOffensePoints - info.offensePenalties;
+
+  info.netDefensePoints = info.netDefensePoints - info.defensePenalties;
+
+  info.totalContribution = info.totalOffensePoints + info.totalDefensePoints;
+
+  info.netContribution = info.netDefensePoints + info.netOffensePoints;
+
+  return info;
+}
+
+//TODO: duress + points given
