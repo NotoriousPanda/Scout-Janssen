@@ -29,3 +29,7 @@ h3 {
 input, select {
 	font-size: 0.9vw;
 }
+
+.vmenu {
+	width: 14%;
+}
