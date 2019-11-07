@@ -80,15 +80,6 @@ html, body {
     text-align: center;
 }
 
-#popup-frame {
-	margin-top: 10vw;
-	background-color: dodgerblue;
-	padding-top: 1.5vw;
-	padding-bottom: 1.5vw;
-	position: absolute;
-	text-align: center;
-}
-
 .ne {
     padding-left: 1em;
     padding-right: 1em;
@@ -162,7 +153,7 @@ h2{
 
 .fl-table td {
     border-right: 1px solid #f8f8f8;
-    font-size: 0.7vw;
+    font-size: 1.2vw;
 }
 
 .fl-table thead th {
