@@ -32,9 +32,9 @@ function calcBotUnreliantMatch(info){
   
   function getBotsInMatch(reports, matchNum){
     var newReports = [];
-    for(i in reports){
-      if(i.matchNumber == matchNum){
-        newReports.push(i);
+    for(var i = 0; i < reports; i++){
+      if(reports[i].matchNumber == matchNum){
+        newReports.push(reports[i]);
       }
     }
   
