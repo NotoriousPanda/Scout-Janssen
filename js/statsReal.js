@@ -30,9 +30,9 @@ function calcBotUnreliantMatch(info){
     return info;
   }
   
-  function getBotsInMatch(reports, matchNum){
+  function getMatchesWithNumber(reports, matchNum){
     var newReports = [];
-    for(var i = 0; i < reports; i++){
+    for(var i = 0; i < reports.length; i++){
       if(reports[i].matchNumber == matchNum){
         newReports.push(reports[i]);
       }
