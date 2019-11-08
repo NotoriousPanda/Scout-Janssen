@@ -122,4 +122,5 @@ async function run(teamNumber){
   for(i in botData){
     botData[i] = calcBotUnreliantMatch(botData[i]);
   }
+  return botData;
 }
