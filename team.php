@@ -22,7 +22,7 @@ $stmt = $database->prepare($sql);
 $result = $database->query($stmt);*/
 
 echo "<table style='border: solid 1px black;'>";
- echo "<tr><th>id</th><th>teamNumber</th><th>matchNumber</th></tr>";
+ echo "<tr><th>id</th><th>team number</th><th>match number</th><th>notes</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -50,7 +50,7 @@ $dbname = "scout_janssen";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT id, teamNumber, matchNumber FROM reports");
+    $stmt = $conn->prepare("SELECT id, teamNumber, matchNumber, notes FROM reports");
     $stmt->execute();
 
     // set the resulting array to associative
@@ -78,6 +78,9 @@ echo "</table>";
 $database->close();*/
 
 ?>
+<script>
+
+</script>
 <body>
 	<div>
 		<div>
