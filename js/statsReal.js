@@ -30,7 +30,7 @@ function calcBotUnreliantMatch(info){
     return info;
   }
   
-  function getMatchesWithNumber(reports, matchNum){
+  function getMatchWithNumber(reports, matchNum){
     var newReports = [];
     for(var i = 0; i < reports.length; i++){
       if(reports[i].matchNumber == matchNum){
@@ -40,11 +40,20 @@ function calcBotUnreliantMatch(info){
   
     return newReports;
   }
+
+  function getBotsInMatch(match){
+    var bots = {};
+    for(i of match){
+        bots["bot" + match[i].position] = i;
+    }
+
+    return bots;
+  }
   
   function calcBotReliantOnMatchBots(info){
-    info.defensePointsBotFour = info["botFour"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotOne"] - info["botFour"]["timeInable"]);
-    info.defensePointsBotFive = info["botFive"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotTwo"] - info["botFive"]["timeInable"]);
-    info.defensePointsBotSix = info["botSix"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotThree"] - info["botSix"]["timeInable"]);
+    info.defensePointsBotFour = info["botFour"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotOne"] - info["bot4"]["timeInable"]);
+    info.defensePointsBotFive = info["botFive"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotTwo"] - info["bot5"]["timeInable"]);
+    info.defensePointsBotSix = info["botSix"]["totalCyclePoints"]  * 115 / (115 - info["defTimeOnBotThree"] - info["bot6"]["timeInable"]);
   
     info.totalDefensePoints = info.defensePointsBotFive + info.defensePointsBotFour + info.defensePointsBotSix;
   
@@ -69,7 +78,7 @@ function calcBotUnreliantMatch(info){
     sum /= variables.length;
   }
   
-  //Takes one bot's all matches as info
+  //Takes all matches of one bot as info
   function getAllAverageDataOnBot(info){
     var keys = Object.keys(info);
     var subKeys = Object.keys(info[keys[0]]);
