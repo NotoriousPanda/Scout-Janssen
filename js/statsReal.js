@@ -118,7 +118,7 @@ function calcBotStuffReliantOnTeams(info){
 
 async function run(teamNumber){
   var data = await getReports();
-  var botData = getReportsOfOneBot(teamNumber);
+  var botData = getReportsOfOneBot(teamNumber, data);
   for(i in botData){
     botData[i] = calcBotUnreliantMatch(botData[i]);
   }
