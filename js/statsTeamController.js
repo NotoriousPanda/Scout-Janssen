@@ -11,7 +11,7 @@ async function run(){
     var varNames = Object.keys(reportsOfTeam[0]);
     var varNamesToDisplay = "";
     for(i of varNames){
-        varNamesToDisplay += i + "<>";
+        varNamesToDisplay += i + "<br>";
     }
     document.getElementById("varnamelist").innerHTML += varNamesToDisplay;
 }
