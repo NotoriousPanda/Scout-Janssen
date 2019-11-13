@@ -7,7 +7,7 @@ async function run(){
         document.write("Error! Yell at Keon.");
     }
     var reports = await getReports();
-    reportsOfTeam = getReportsOfOneBot(getTeamNum());
+    reportsOfTeam = getReportsOfOneBot(getTeamNum(), reports);
     var varNames = Object.keys(reportsOfTeam[0]);
     var varNamesToDisplay = "";
     for(i of varNames){
