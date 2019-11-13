@@ -1,8 +1,50 @@
 <html>
     <head>
-        <script src="js/statsReal.js"></script>
+        <style>
+            @font-face {
+                font-family: heebo;
+                src: url("fonts/Heebo-Medium.ttf");
+            }
+            .boxColor{
+                background-color: rgba(0,0,0,0.5);
+                color: white;
+                font-family: heebo;
+                border: 0.1vw solid #222222;
+            }
+            #varnamelist{
+                position: absolute;
+                width: 11vw;
+                height: 86vh;
+                padding-left: 2vw;
+                padding-right: 2vw;
+                padding-top: 2vh;
+                padding-bottom: 2vh;
+                left: 2vw;
+                top: 5vh;
+                
+            }
+            #mainBox{
+                position: absolute;
+                width: 70vw;
+                height: 86vh;
+                padding-left: 2vw;
+                padding-right: 2vw;
+                padding-top: 2vh;
+                padding-bottom: 2vh;
+                left: 17vw;
+                top: 5vh;
+            }
+            h3{
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        </style>
     </head>
     <body>
-        
+        <div id="varnamelist" class="boxColor"><h3>Data Names</h3></div>
+        <div id="mainBox" class="boxColor"></div>
+        <script src="js/statsReal.js"></script>
+        <script src="js/coolanimation.js"></script>
+        <script src="js/statsTeamController.js"></script>
     </body>
 </html>

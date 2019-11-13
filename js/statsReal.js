@@ -1,4 +1,3 @@
-
 //Takes one bot's match
 function calcBotUnreliantMatch(info){
 
@@ -116,11 +115,11 @@ function calcBotStuffReliantOnTeams(info){
 
 //TODO: duress + points given
 
-async function run(teamNumber){
+/*async function run(teamNumber){
   var data = await getReports();
   var botData = getReportsOfOneBot(teamNumber, data);
   for(i in botData){
     botData[i] = calcBotUnreliantMatch(botData[i]);
   }
   return botData;
-}
+}*/
