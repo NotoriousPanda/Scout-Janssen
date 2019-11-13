@@ -13,7 +13,7 @@ async function run(){
     for(i of varNames){
         varNamesToDisplay += i + "<>";
     }
-    document.getElementById("varnameList").innerHTML += varNamesToDisplay;
+    document.getElementById("varnamelist").innerHTML += varNamesToDisplay;
 }
 
 run();
