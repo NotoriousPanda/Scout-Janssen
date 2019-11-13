@@ -7,14 +7,13 @@
             }
             .boxColor{
                 background-color: rgba(0,0,0,0.5);
-                color: white;
+                color: #949494;
                 font-family: heebo;
                 border: 0.1vw solid #222222;
             }
             #varnamelist{
                 position: absolute;
                 width: 11vw;
-                height: 86vh;
                 padding-left: 2vw;
                 padding-right: 2vw;
                 padding-top: 2vh;
@@ -26,7 +25,6 @@
             #mainBox{
                 position: absolute;
                 width: 70vw;
-                height: 86vh;
                 padding-left: 2vw;
                 padding-right: 2vw;
                 padding-top: 2vh;
@@ -37,12 +35,22 @@
             h3{
                 font-weight: bold;
                 text-decoration: underline;
+                text-align: center;
+            }
+            h1{
+                font-weight: bold;
+                text-decoration: underline;
+                text-align: center;
             }
         </style>
     </head>
     <body>
-        <div id="varnamelist" class="boxColor"><h3>Data Names</h3></div>
-        <div id="mainBox" class="boxColor"></div>
+        <div id="varnamelist" class="boxColor">
+            <h3>Data Names</h3>
+        </div>
+        <div id="mainBox" class="boxColor">
+            <h1>Custom Average Stats</h1>
+        </div>
         <script src="js/statsReal.js"></script>
         <script src="js/coolanimation.js"></script>
         <script src="js/statsTeamController.js"></script>
