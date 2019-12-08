@@ -94,17 +94,18 @@
                 padding: 2vw;
             }
         </style>
+        <script src="js/constants.js"></script>
     </head>
     <body>
         <div id="varnamelist" class="boxColor noselect">
             <h3>Data Names</h3>
         </div>
         <div id="mainBox" class="boxColor">
-            <h1>Custom Average Stats</h1>
+            <h1>Stats</h1>
             <table>
                 <tr>
                     <div id="createStatsDiv">
-                        <h3 class="leftAlign">Create an Average Stat</h3>
+                        <h3 class="leftAlign">Create a Stat</h3>
                         Title: <input id="statsTitleBox" type="text"><br><br>
                         Formula: <input id="createStatsBox" ondrop="drop(event)" ondragover="allowDrop(event)" type="text">
                         <br>
@@ -113,6 +114,7 @@
                     </div>
                 </tr>
             </table>
+            <div id="statBoxContainer"></div>
         </div>
         <script src="js/statsReal.js"></script>
         <script src="js/coolanimation.js"></script>

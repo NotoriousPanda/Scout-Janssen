@@ -1,7 +1,8 @@
 var reports;
 var reportsOfTeam;
 var varNames;
-localStorage.statFormulas = [];
+var statFormulas = [];
+var ws;
 
 function getTeamNum(){
     return location.href.substring(location.href.indexOf("#") + 1);
@@ -20,6 +21,7 @@ async function run(){
         varNamesToDisplay += "<div class='highlightOnHover' draggable='true' ondragstart='dragStart(event)'>" + i + "</div>";
     }
     document.getElementById("varnamelist").innerHTML += varNamesToDisplay;
+    startWSStuff();
 }
 
 function dragStart(event) {
@@ -52,7 +54,8 @@ function addStat(){
     }
 
     //console.log(text);
-    document.getElementById("mainBox").innerHTML += createStatBox(text, reportsOfTeam);
+    statFormulas.push({name: document.getElementById("statsTitleBox").value, formula: text});
+    ws.send(JSON.stringify(statFormulas[statFormulas.length - 1]));
 }
 
 function replaceAll(s, s1, s2){
@@ -62,14 +65,14 @@ function replaceAll(s, s1, s2){
     return s; 
 }
 
-function createStatBox(formula, teamReports){
+function createStatBox(formula, name, teamReports){
     var matchStats = [];
     var avg = 0;
     for(var i = 0; i < teamReports.length; i++){
         matchStats[i] = [reportsOfTeam[i].matchNumber, eval(formula)];
     }
 
-    var box = "<div class='statBox'><h2>" + document.getElementById("statsTitleBox").value + "</h2><table>";
+    var box = "<div class='statBox'><h2>" + name + "</h2><table>";
 
     for(var i = 0; i < matchStats.length; i++){
         box += "<tr><td>Match " + matchStats[i][0] + ":</td><td> " + matchStats[i][1] + "</td></tr>";
@@ -100,6 +103,20 @@ function cleanData(data){
         }
     }
     return data;
+}
+
+function startWSStuff(){
+    ws = new WebSocket(getWSUrl());
+
+    ws.onmessage = (message) => {
+        statFormulas = JSON.parse(message.data);
+        while(document.getElementsByClassName("statBox")[0] != undefined){
+            document.getElementsByClassName("statBox")[0].remove();
+        }
+        for(var i = 0; i < statFormulas.length; i++){
+            document.getElementById("statBoxContainer").innerHTML += createStatBox(statFormulas[i].formula, statFormulas[i].name, reportsOfTeam);
+        }
+    }
 }
 
 run();
