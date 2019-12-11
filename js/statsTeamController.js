@@ -3,6 +3,7 @@ var reportsOfTeam;
 var varNames;
 var statFormulas = [];
 var ws;
+var averages = {};
 
 function getTeamNum(){
     return location.href.substring(location.href.indexOf("#") + 1);
@@ -42,6 +43,7 @@ function drop(event) {
 function addStat(){
     var text = document.getElementById("createStatsBox").value;
     document.getElementById("createStatsBox").value = "";
+    var averageNames = Object.keys(averages);
     //console.log(varNames);
     for(var i = 0; i < varNames.length; i++){
         text = text.split("{" + varNames[i] + "}");
@@ -49,6 +51,18 @@ function addStat(){
         for(var j = 0; j < text.length; j++){
             newText += text[j]
             if(j != text.length - 1) newText += "reportsOfTeam[i]['" + varNames[i] + "']";
+        }
+        text = newText;
+    }
+
+    console.log(averageNames);
+
+    for(var i = 0; i < averageNames.length; i++){
+        text = text.split("{" + averageNames[i] + "}");
+        var newText = "";
+        for(var j = 0; j < text.length; j++){
+            newText += text[j]
+            if(j != text.length - 1) newText += 'averages["' + averageNames[i] + '"]';
         }
         text = newText;
     }
@@ -85,6 +99,8 @@ function createStatBox(formula, name, teamReports){
 
     box += "</table></div>";
 
+    averages[name] = avg;
+
     return box;
 }
 
@@ -117,6 +133,10 @@ function startWSStuff(){
             document.getElementById("statBoxContainer").innerHTML += createStatBox(statFormulas[i].formula, statFormulas[i].name, reportsOfTeam);
         }
     }
+}
+
+function getAverageOfStatsBox(name){
+
 }
 
 run();
